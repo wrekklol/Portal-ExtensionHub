@@ -1874,7 +1874,7 @@
             Waits for the specified amount of game ticks.
             </summary>
             <param name="InTicks">Amount of ticks to wait for.</param>
-            <param name="InTimeout">Timeout in milliseconds. Defaults to 10000ms.</param>
+            <param name="InTimeout">Timeout for each wait in milliseconds. Defaults to 10000ms.</param>
         </member>
         <member name="M:OSRSHelpers.Shared.LoginIfLoggedOut">
             <summary>
