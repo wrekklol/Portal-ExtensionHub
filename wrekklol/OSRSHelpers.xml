@@ -234,13 +234,11 @@
             <summary>
             CloseObjects class.
             </summary>
-            <param name="InDataID">Data ID.</param>
         </member>
         <member name="M:OSRSHelpers.DataTypes.CloseObjects.#ctor(System.String,Portal.ThreadSafeWrapper)">
             <summary>
             CloseObjects class.
             </summary>
-            <param name="InDataID">Data ID.</param>
         </member>
         <member name="P:OSRSHelpers.DataTypes.CloseObjects.Objects">
             <summary>
@@ -311,13 +309,11 @@
             <summary>
             CloseObjects class.
             </summary>
-            <param name="InDataID">Data ID.</param>
         </member>
         <member name="M:OSRSHelpers.DataTypes.ClosePlayers.#ctor(System.String,Portal.ThreadSafeWrapper)">
             <summary>
             CloseObjects class.
             </summary>
-            <param name="InDataID">Data ID.</param>
         </member>
         <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayers">
             <summary>
@@ -869,6 +865,7 @@
             <param name="InMouseKey">Mouse key to use.</param>
             <param name="InMouseMoveOptions">Mouse move options to use.</param>
             <param name="InbUseRegionAsDestRange">True if the region found should be used as the destination range, false otherwise.</param>
+            <param name="InbCalculateSpeedByDistance">True if the speed should be calculated by distance, false otherwise.</param>
             <returns>True if the item was clicked, false otherwise.</returns>
         </member>
         <member name="M:OSRSHelpers.DataTypes.ItemContainer.ClickItemByName(System.String,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
@@ -880,6 +877,7 @@
             <param name="InMouseKey">Mouse key to use.</param>
             <param name="InMouseMoveOptions">Mouse move options to use.</param>
             <param name="InbUseRegionAsDestRange">True if the region found should be used as the destination range, false otherwise.</param>
+            <param name="InbCalculateSpeedByDistance">True if the speed should be calculated by distance, false otherwise.</param>
             <returns>True if the item was clicked, false otherwise.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.ItemContainer.ItemData">
