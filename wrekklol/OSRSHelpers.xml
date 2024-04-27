@@ -1,0 +1,2481 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OSRSHelpers</name>
+    </assembly>
+    <members>
+        <member name="T:OSRSHelpers.Cache">
+            <summary>
+            Cache class, contains cached values like templates, points, regions and grids.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Cache.Points">
+            <summary>
+            Cached points.
+            
+            Can be overridden like this: <c>Points["ScreenCenter"] = GamePoint.MakeFromPercent(50, 50);</c>
+            Or like this: <c>Points["ScreenCenter"] = () => GamePoint.MakeFromPercent(50, 50);</c>
+            
+            If you use the second method and InbDeferCache is true, it calls the action when it has to get the value and then caches it, otherwise it calls the action immediately to cache the value.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Cache.Regions">
+            <summary>
+            Cached regions.
+            
+            Can be overridden like this: <c>Regions["ScreenCenter"] = GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100);</c>
+            Or like this: <c>Regions["ScreenCenter"] = () => GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100);</c>
+            
+            If you use the second method and InbDeferCache is true, it calls the action when it has to get the value and then caches it, otherwise it calls the action immediately to cache the value.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Cache.Grids">
+            <summary>
+            Cached grids.
+            
+            Can be overridden like this: <c>Grids["Inventory"] = new GameGrid(GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100), ...);</c>
+            Or like this: <c>Grids["Inventory"] = () => new GameGrid(GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100), ...);</c>
+            
+            If you use the second method and InbDeferCache is true, it calls the action when it has to get the value and then caches it, otherwise it calls the action immediately to cache the value.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Cache.DigitLib_Chat">
+            <summary>
+            Cached digit library for chat.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Cache.DigitLib_OpponentInfo">
+            <summary>
+            Cached digit library for opponent info.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Cache.Initialize">
+            <summary>
+            Initializes the cache.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Bank">
+            <summary>
+            Bank class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Bank.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Bank class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Bank.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.BaseData">
+            <summary>
+            Base data class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.BaseData.DataID">
+            <summary>
+            Data ID.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.BaseData.Data">
+            <summary>
+            JSON data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.BaseData.Wrapper">
+            <summary>
+            Wrapper for thread safety.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.BaseData.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Base data constructor.
+            </summary>
+            <param name="InDataID">Data ID. Will subscribe to data updates with this ID.</param>
+            <param name="InWrapper">Wrapper for thread safety.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.BaseData.SetFromJSON(System.String)">
+            <summary>
+            Set data from JSON.
+            </summary>
+            <param name="InData">JSON data to set from.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.BaseData.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <summary>
+            Set data from JSON.
+            </summary>
+            <param name="InData">JSON data to set from.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.BaseData.ForceUpdate">
+            <summary>
+            Force update data.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.BaseData.SetValue``1(``0@,``0)">
+            <summary>
+            Set value with thread safety.
+            </summary>
+            <param name="InValue">Reference to the value to set.</param>
+            <param name="InNewValue">New value to set.</param>
+            <typeparam name="T">Type of the value.</typeparam>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.BaseData.GetValue``1(``0@)">
+            <summary>
+            Get value with thread safety.
+            </summary>
+            <param name="InValue">Reference to the value to get.</param>
+            <typeparam name="T">Type of the value.</typeparam>
+            <returns>Value.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Camera">
+            <summary>
+            Game camera class.
+            <br/><br/>
+            It contains the camera position/rotation.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Camera.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Game camera class.
+            <br/><br/>
+            It contains the camera position/rotation.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.X">
+            <summary>
+            Camera X position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.Y">
+            <summary>
+            Camera Y position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.Z">
+            <summary>
+            Camera Z position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.Pitch">
+            <summary>
+            Camera pitch.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.Yaw">
+            <summary>
+            Camera yaw.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.FP_X">
+            <summary>
+            Camera floating point X position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.FP_Y">
+            <summary>
+            Camera floating point Y position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.FP_Z">
+            <summary>
+            Camera floating point Z position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.FP_Pitch">
+            <summary>
+            Camera floating point pitch.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Camera.FP_Yaw">
+            <summary>
+            Camera floating point yaw.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Camera.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.CloseNPCs">
+            <summary>
+            Close NPCs class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseNPCs.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Close NPCs class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseNPCs.NPCs">
+            <summary>
+            List of npcs.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseNPCs.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseNPCs.GetClosestNPC(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            Get the closest npc.
+            </summary>
+            <param name="InNames">Names of the npcs to get.</param>
+            <param name="InbOnlyNonTagged">If true, only get npcs that have not been tagged by someone else.</param>
+            <param name="InbShouldForceUpdate">If true, force update the npcs before clicking.</param>
+            <returns>The closest npc.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseNPCs.GetClosestToMouse(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            Get the closest npc to the mouse.
+            </summary>
+            <param name="InNames">Names of the npcs to get.</param>
+            <param name="InbOnlyNonTagged">If true, only get npcs that have not been tagged by someone else.</param>
+            <param name="InbShouldForceUpdate">If true, force update the npcs before clicking.</param>
+            <returns>The closest npc to the mouse.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.CloseObjects">
+            <summary>
+            CloseObjects class.
+            </summary>
+            <param name="InDataID">Data ID.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseObjects.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            CloseObjects class.
+            </summary>
+            <param name="InDataID">Data ID.</param>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.Objects">
+            <summary>
+            List of objects.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseObjects.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseObjects.GetClosestObject(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest object.
+            </summary>
+            <param name="InNames">Names of the objects to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the objects before clicking.</param>
+            <returns>The closest object.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseObjects.GetClosestToMouse(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest object to the mouse.
+            </summary>
+            <param name="InNames">Names of the objects to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the objects before clicking.</param>
+            <returns>The closest object to the mouse.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.CloseObjects.ObjectData">
+            <summary>
+            Object data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.ObjectData.Name">
+            <summary>
+            Name of the object.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.ObjectData.ID">
+            <summary>
+            ID of the object.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.ObjectData.Hash">
+            <summary>
+            Hash of the object.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.ObjectData.Position">
+            <summary>
+            Position of the object.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.ObjectData.LocalPosition">
+            <summary>
+            Local position of the object.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseObjects.ObjectData.WorldPosition">
+            <summary>
+            World position of the object.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseObjects.ObjectData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InData">Data to set from.</param>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.ClosePlayers">
+            <summary>
+            CloseObjects class.
+            </summary>
+            <param name="InDataID">Data ID.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ClosePlayers.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            CloseObjects class.
+            </summary>
+            <param name="InDataID">Data ID.</param>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayers">
+            <summary>
+            List of remote players.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ClosePlayers.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ClosePlayers.GetClosestPlayer(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest player.
+            </summary>
+            <param name="InNames">Names of the players to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the players before clicking.</param>
+            <returns>The closest player.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ClosePlayers.GetClosestToMouse(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest player to the mouse.
+            </summary>
+            <param name="InNames">Names of the players to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the players before clicking.</param>
+            <returns>The closest player to the mouse.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData">
+            <summary>
+            Remote player data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.Name">
+            <summary>
+            Name of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.ID">
+            <summary>
+            ID of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.Hash">
+            <summary>
+            Hash of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.HealthCur">
+            <summary>
+            Current health of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.HealthMax">
+            <summary>
+            Maximum health of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.CombatLevel">
+            <summary>
+            Combat level of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.bIsDead">
+            <summary>
+            If true, the remote player is dead.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.HeadIcon">
+            <summary>
+            Remote player's overhead icon.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.Position">
+            <summary>
+            Position of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.LocalPosition">
+            <summary>
+            Local position of the remote player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.WorldPosition">
+            <summary>
+            World position of the remote player.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ClosePlayers.RemotePlayerData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InJson">Json data to parse.</param>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Equipment">
+            <summary>
+            Equipment class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Equipment.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Constructor for Equipment.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Equipment.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Equipment.ClickItemBySlot(System.Int32,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Equipment.ClickItemByID(System.Int32,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Equipment.ClickItemByName(System.String,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Game">
+            <summary>
+            Game class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Game.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Game class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Game.State">
+            <summary>
+            State of the game, e.g. LOGGED_IN, LOGIN_SCREEN etc.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Game.Cycle">
+            <summary>
+            Current cycle of the game.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Game.Tick">
+            <summary>
+            Current tick of the game.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Game.ClientScale">
+            <summary>
+            Scale of the client.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Game.ClientPlane">
+            <summary>
+            Plane of the client.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Game.bIsLoggedIn">
+            <summary>
+            If true, the player is logged in.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Game.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Game.EGameState">
+            <summary>
+            Game state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.UNKNOWN">
+            <summary>
+            Unknown state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.STARTING">
+            <summary>
+            Starting state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.LOGIN_SCREEN">
+            <summary>
+            Login screen state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.LOGIN_SCREEN_AUTHENTICATOR">
+            <summary>
+            Login screen authenticator state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.LOGGING_IN">
+            <summary>
+            Logging in state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.LOADING">
+            <summary>
+            Loading state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.LOGGED_IN">
+            <summary>
+            Logged in state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.CONNECTION_LOST">
+            <summary>
+            Connection lost state.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.DataTypes.Game.EGameState.HOPPING">
+            <summary>
+            Hopping state.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Inventory">
+            <summary>
+            Inventory class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Inventory.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Constructor for Inventory.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Inventory.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Inventory.ClickItemBySlot(System.Int32,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Inventory.ClickItemByID(System.Int32,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Inventory.ClickItemByName(System.String,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.ItemContainer">
+             <summary>
+             Item container base class.
+            
+             Call Initialize() in the constructor of the derived class.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.#ctor(System.String,Portal.ThreadSafeWrapper)">
+             <summary>
+             Item container base class.
+            
+             Call Initialize() in the constructor of the derived class.
+             </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.Items">
+            <summary>
+            Items in the container.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemCount">
+            <summary>
+            Amount of (valid, not -1 in ID) items in the container.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.bIsEmpty">
+            <summary>
+            True if the container is empty, false otherwise.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.bIsFull">
+            <summary>
+            True if the container is full, false otherwise.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.GEPrice">
+            <summary>
+            Grand Exchange price of all items in the container.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.Initialize(System.Int32)">
+            <summary>
+            Initializes the container.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItem(System.Int32)">
+            <summary>
+            Checks if the inventory has an item with the given ID.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <returns>True if the inventory has an item with the given ID, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItem(System.Int32,System.Int32)">
+            <summary>
+            Checks if the inventory has an item with the given ID and quantity.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>True if the inventory has an item with the given ID and quantity, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItem(System.String)">
+            <summary>
+            Checks if the inventory has an item with the given name.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <returns>True if the inventory has an item with the given name, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItem(System.String,System.Int32)">
+            <summary>
+            Checks if the inventory has an item with the given name and quantity.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>True if the inventory has an item with the given name and quantity, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItems(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Checks if the inventory has all the items with the given IDs.
+            </summary>
+            <param name="InIDs">IDs of the items.</param>
+            <returns>True if the inventory has all the items with the given IDs, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItems(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Checks if the inventory has all the items with the given IDs.
+            </summary>
+            <param name="InNames">Names of the items.</param>
+            <returns>True if the inventory has all the items with the given names, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.HasItemInSlot(System.Int32)">
+            <summary>
+            Checks if the inventory has an item in the given slot.
+            </summary>
+            <param name="InSlot">Slot to check.</param>
+            <returns>True if the inventory has an item in the given slot, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItem(System.Int32)">
+            <summary>
+            Gets the first item with the given ID.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <returns>Item with the given ID, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItem(System.Int32,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given ID.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="OutItem">Item with the given ID, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItem(System.String)">
+            <summary>
+            Gets the first item with the given name.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <returns>Item with the given name, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItem(System.String,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given name.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="OutItem">Item with the given name, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItemRandom(System.Int32)">
+            <summary>
+            Gets the first item with the given ID, using a random order.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <returns>Item with the given ID, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItemRandom(System.Int32,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given ID, using a random order.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="OutItem">Item with the given ID, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItemRandom(System.String)">
+            <summary>
+            Gets the first item with the given name, using a random order.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <returns>Item with the given name, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItemRandom(System.String,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given name, using a random order.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="OutItem">Item with the given name, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItem(System.Int32,System.Int32)">
+            <summary>
+            Gets the first item with the given ID and quantity.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>Item with the given ID and quantity, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItem(System.Int32,System.Int32,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given ID and quantity.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <param name="OutItem">Item with the given ID and quantity, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItem(System.String,System.Int32)">
+            <summary>
+            Gets the first item with the given name and quantity.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>Item with the given name and quantity, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItem(System.String,System.Int32,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given name and quantity.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <param name="OutItem">Item with the given name and quantity, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItemRandom(System.Int32,System.Int32)">
+            <summary>
+            Gets the first item with the given ID and quantity, using a random order.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>Item with the given ID and quantity, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItemRandom(System.Int32,System.Int32,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given ID and quantity, using a random order.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <param name="OutItem">Item with the given ID and quantity, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItemRandom(System.String,System.Int32)">
+            <summary>
+            Gets the first item with the given name and quantity, using a random order.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>Item with the given name and quantity, null if not found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItemRandom(System.String,System.Int32,OSRSHelpers.DataTypes.ItemContainer.ItemData@)">
+            <summary>
+            Tries to get the first item with the given name and quantity, using a random order.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <param name="OutItem">Item with the given name and quantity, null if not found.</param>
+            <returns>True if the item was found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItems(System.Int32)">
+            <summary>
+            Gets all items with the given ID.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <returns>Items with the given ID.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItems(System.Int32,System.Collections.Generic.List{OSRSHelpers.DataTypes.ItemContainer.ItemData}@)">
+            <summary>
+            Tries to get all items with the given ID.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="OutItems">Items with the given ID.</param>
+            <returns>True if the items were found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItems(System.String)">
+            <summary>
+            Gets all items with the given name.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <returns>Items with the given name.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItems(System.String,System.Collections.Generic.List{OSRSHelpers.DataTypes.ItemContainer.ItemData}@)">
+            <summary>
+            Tries to get all items with the given name.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="OutItems">Items with the given name.</param>
+            <returns>True if the items were found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItems(System.Int32,System.Int32)">
+            <summary>
+            Gets all items with the given ID and quantity.
+            
+            Note: This only counts items that has the given quantity or more.
+            So if an item has 3 and another has 4 and you search for 7, it will NOT return those two items, as they don't have 7 or more.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>Items with the given ID and quantity.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItems(System.Int32,System.Int32,System.Collections.Generic.List{OSRSHelpers.DataTypes.ItemContainer.ItemData}@)">
+            <summary>
+            Tries to get all items with the given ID and quantity.
+            
+            Note: This only counts items that has the given quantity or more.
+            So if an item has 3 and another has 4 and you search for 7, it will NOT return those two items, as they don't have 7 or more.
+            </summary>
+            <param name="InID">ID of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <param name="OutItems">Items with the given ID and quantity.</param>
+            <returns>True if the items were found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetItems(System.String,System.Int32)">
+            <summary>
+            Gets all items with the given name and quantity.
+            
+            Note: This only counts items that has the given quantity or more.
+            So if an item has 3 and another has 4 and you search for 7, it will NOT return those two items, as they don't have 7 or more.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <returns>Items with the given name and quantity.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.TryGetItems(System.String,System.Int32,System.Collections.Generic.List{OSRSHelpers.DataTypes.ItemContainer.ItemData}@)">
+            <summary>
+            Tries to get all items with the given name and quantity.
+            
+            Note: This only counts items that has the given quantity or more.
+            So if an item has 3 and another has 4 and you search for 7, it will NOT return those two items, as they don't have 7 or more.
+            </summary>
+            <param name="InName">Name of the item.</param>
+            <param name="InQuantity">Quantity of the item.</param>
+            <param name="OutItems">Items with the given name and quantity.</param>
+            <returns>True if the items were found, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.GetAllItems">
+            <summary>
+            Gets all items as a list.
+            </summary>
+            <returns>All items.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.ClickItemBySlot(System.Int32,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <summary>Clicks the item in the given slot.</summary>
+            <param name="InSlot">Slot of the item.</param>
+            <param name="InMouseKey">Mouse key to use.</param>
+            <param name="InMouseMoveOptions">Mouse move options to use.</param>
+            <param name="InbUseRegionAsDestRange">True if the region found should be used as the destination range, false otherwise.</param>
+            <param name="InbCalculateSpeedByDistance">True if the speed should be calculated by distance, false otherwise.</param>
+            <returns>True if the item was clicked, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.ClickItemByID(System.Int32,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <summary>
+            Finds the slot of the item with the given ID, and clicks it.
+            </summary>
+            <param name="InItemID">ID of the item.</param>
+            <param name="InbRandomizeOrder">True if the order of the items should be randomized, false otherwise.</param>
+            <param name="InMouseKey">Mouse key to use.</param>
+            <param name="InMouseMoveOptions">Mouse move options to use.</param>
+            <param name="InbUseRegionAsDestRange">True if the region found should be used as the destination range, false otherwise.</param>
+            <returns>True if the item was clicked, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.ClickItemByName(System.String,System.Boolean,Portal.Input.EMouseKey,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean,System.Boolean)">
+            <summary>
+            Finds the slot of the item with the given name, and clicks it.
+            </summary>
+            <param name="InItemName">Name of the item.</param>
+            <param name="InbRandomizeOrder">True if the order of the items should be randomized, false otherwise.</param>
+            <param name="InMouseKey">Mouse key to use.</param>
+            <param name="InMouseMoveOptions">Mouse move options to use.</param>
+            <param name="InbUseRegionAsDestRange">True if the region found should be used as the destination range, false otherwise.</param>
+            <returns>True if the item was clicked, false otherwise.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.ItemContainer.ItemData">
+            <summary>
+            Loot data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemData.Name">
+            <summary>
+            Name of the item.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemData.ID">
+            <summary>
+            ID of the item.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemData.Quantity">
+            <summary>
+            Quantity of the item.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemData.Hash">
+            <summary>
+            Hash of the item.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemData.GePrice">
+            <summary>
+            Grand Exchange price of the item (calculated with quantity in mind, so to get the individual price, divide by quantity).
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ItemContainer.ItemData.Slot">
+            <summary>
+            Slot in item container of the item. If it doesn't belong to a container, it should be -1.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.ItemData.#ctor(System.Text.Json.JsonElement,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InJson">Json data to parse.</param>
+            <param name="InItemSlot">Slot of the item. If it doesn't belong to a container, it should be -1.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.ItemData.MakeInitialized(System.Int32)">
+            <summary>
+            Makes an item with -1 as ID and the given slot.
+            </summary>
+            <param name="InItemSlot">Slot of the item. If it doesn't belong to a container, it should be -1.</param>
+            <returns>Item with -1 as ID and the given slot.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ItemContainer.ItemData.MakeUninitialized(System.Int32)">
+            <summary>
+            Makes an item with -2 as ID and the given slot.
+            </summary>
+            <param name="InItemSlot">Slot of the item. If it doesn't belong to a container, it should be -1.</param>
+            <returns>Item with -2 as ID and the given slot.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Loot">
+            <summary>
+            Loot class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Loot.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Loot class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Loot.Items">
+            <summary>
+            List of items.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Loot.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Loot.GetLootInRange(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get loot in range.
+            </summary>
+            <returns>List of loot data.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Loot.GetClosestLoot(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest loot.
+            </summary>
+            <param name="InNames">Names of the items to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the loot before clicking.</param>
+            <returns>The closest loot.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Loot.GetClosestToMouse(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest loot to the mouse.
+            </summary>
+            <param name="InNames">Names of the items to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the loot before clicking.</param>
+            <returns>The closest loot to the mouse.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Loot.LootData">
+            <summary>
+            Loot data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Loot.LootData.Item">
+            <summary>
+            Loot item.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Loot.LootData.Position">
+            <summary>
+            Position of the loot.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Loot.LootData.LocalPosition">
+            <summary>
+            Local position of the loot.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Loot.LootData.WorldPosition">
+            <summary>
+            World position of the loot.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Loot.LootData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InJson">Json data to parse.</param>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.NPC">
+            <summary>
+            NPC class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.NPC.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            NPC class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.Name">
+            <summary>
+            Name of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.ID">
+            <summary>
+            ID of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.Hash">
+            <summary>
+            Hash of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.HealthCur">
+            <summary>
+            Current health of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.HealthMax">
+            <summary>
+            Maximum health of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.CombatLevel">
+            <summary>
+            Combat level of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.bIsDead">
+            <summary>
+            If true, the NPC is dead.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.bHasBeenTagged">
+            <summary>
+            If true, the NPC has been tagged by someone else.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.Position">
+            <summary>
+            Position of the NPC.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.NPC.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.NPC.NPCData">
+            <summary>
+            Npc data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.Name">
+            <summary>
+            Name of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.ID">
+            <summary>
+            ID of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.Hash">
+            <summary>
+            Hash of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.HealthCur">
+            <summary>
+            Current health of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.HealthMax">
+            <summary>
+            Maximum health of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.CombatLevel">
+            <summary>
+            Combat level of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.bIsDead">
+            <summary>
+            If true, the NPC is dead.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.bHasBeenTagged">
+            <summary>
+            If true, the NPC has been tagged by someone else.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.Position">
+            <summary>
+            Position of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.LocalPosition">
+            <summary>
+            Local position of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPC.NPCData.WorldPosition">
+            <summary>
+            World position of the NPC.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.NPC.NPCData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InJson">Json data to parse.</param>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Skills">
+            <summary>
+            Skills class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Skills.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Skills class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Skills.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Status">
+            <summary>
+            Status class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Status.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Status class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.HealthCur">
+            <summary>
+            Current health of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.HealthMax">
+            <summary>
+            Maximum health of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.HealthPercent">
+            <summary>
+            Percent health of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.PrayerCur">
+            <summary>
+            Current prayer of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.PrayerMax">
+            <summary>
+            Maximum prayer of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.PrayerPercent">
+            <summary>
+            Percent prayer of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.bIsQuickPrayerEnabled">
+            <summary>
+            If true, quick prayer is enabled.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.ActivePrayers">
+            <summary>
+            Active prayers of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.RunEnergy">
+            <summary>
+            Current run energy of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.Weight">
+            <summary>
+            Current weight of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.bIsRunEnabled">
+            <summary>
+            If true, run is enabled.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.CombatLevel">
+            <summary>
+            Combat level of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.AttackStyle">
+            <summary>
+            Current attack style of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.SpecialAttack">
+            <summary>
+            Current special attack of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.bIsDead">
+            <summary>
+            If true, the player is dead.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.bIsIdle">
+            <summary>
+            If true, the player is idle.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.bIsWalking">
+            <summary>
+            If true, the player is walking.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.bIsRunning">
+            <summary>
+            If true, the player is running.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.Animation">
+            <summary>
+            Player's animation.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.AnimationPose">
+            <summary>
+            Player's pose.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.HeadIcon">
+            <summary>
+            Player's overhead icon.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.Position">
+            <summary>
+            Position of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.LocalPosition">
+            <summary>
+            Local position of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Status.WorldPosition">
+            <summary>
+            World position of the player.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Status.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Status.IsPrayerActive(OSRSHelpers.Types.EPrayer)">
+            <summary>
+            If the player has a certain prayer active.
+            </summary>
+            <param name="InPrayer">Prayer to check.</param>
+            <returns>True if the player has the prayer active.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Status.IsPrayerActive(System.Collections.Generic.IEnumerable{OSRSHelpers.Types.EPrayer})">
+            <summary>
+            If the player has all of the prayers active.
+            </summary>
+            <param name="InPrayers">Prayers to check.</param>
+            <returns>True if the player has all of the prayers active.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.UI">
+            <summary>
+            UI class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UI.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            UI class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.InventorySlots">
+            <summary>
+            List of ui inventory slots.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.EquipmentSlots">
+            <summary>
+            List of ui equipment slots.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.BankSlots">
+            <summary>
+            List of ui bank slots.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.Prayers">
+            <summary>
+            List of ui prayers.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.PrayerButton">
+            <summary>
+            Quick prayer button.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.RunButton">
+            <summary>
+            Run button.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UI.SpecialButton">
+            <summary>
+            Special attack button.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UI.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.UIMenu">
+            <summary>
+            UI Menu class. It is the right click menu.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UIMenu.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            UI Menu class. It is the right click menu.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.bIsMenuOpen">
+            <summary>
+            If true, the menu is open.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptions">
+            <summary>
+            List of menu options.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.Position">
+            <summary>
+            Position of the menu.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UIMenu.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UIMenu.TryClickOption(System.Int32,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean)">
+            <summary>
+            Tries to click a menu option.
+            </summary>
+            <param name="InIndex">Index of the option.</param>
+            <param name="InMouseMoveOptions">Mouse move options.</param>
+            <param name="InbShouldForceUpdate">If true, force update the menu options before clicking.</param>
+            <returns>True if the option was clicked, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UIMenu.TryClickOption(System.String,System.String,System.Nullable{Portal.Input.MouseMoveOptions},System.Boolean)">
+            <summary>
+            Tries to click a menu option.
+            </summary>
+            <param name="InName">Name (left hand text) of the option.</param>
+            <param name="InTarget">Target (right hand text) of the option.</param>
+            <param name="InMouseMoveOptions">Mouse move options.</param>
+            <param name="InbShouldForceUpdate">If true, force update the menu options before clicking.</param>
+            <returns>True if the option was clicked, false otherwise.</returns>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.UIMenu.MenuOptionData">
+            <summary>
+            Menu Option data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Index">
+            <summary>
+            Index of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Option">
+            <summary>
+            Left hand side text of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Target">
+            <summary>
+            Right hand side text of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Identifier">
+            <summary>
+            Identifier of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Type">
+            <summary>
+            Type of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Param0">
+            <summary>
+            Param0 of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Param1">
+            <summary>
+            Param1 of the option.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.bIsForceLeftClick">
+            <summary>
+            If true, the option is force left click.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.bIsDeprioritized">
+            <summary>
+            If true, the option is deprioritized.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.bIsItemOp">
+            <summary>
+            If true, the option is an item operation like drop, eat, etc.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Position">
+            <summary>
+            Position of the option in screen space.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.Item">
+            <summary>
+            Item if right clicked on an item.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.NPC">
+            <summary>
+            NPC if right clicked on an NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.RemotePlayer">
+            <summary>
+            Remote player if right clicked on a player.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.UIMenu.MenuOptionData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InJson">Json data to parse.</param>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.Viewport">
+            <summary>
+            Game viewport class.
+            <br/><br/>
+            The viewport is the visible area of the game window.
+            <br/><br/>
+            It contains the X, Y, Width, and Height of the viewport.
+            <br/><br/>
+            X and Y are the offset of the viewport from the top-left corner of the game window.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Viewport.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Game viewport class.
+            <br/><br/>
+            The viewport is the visible area of the game window.
+            <br/><br/>
+            It contains the X, Y, Width, and Height of the viewport.
+            <br/><br/>
+            X and Y are the offset of the viewport from the top-left corner of the game window.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Viewport.X">
+            <summary>
+            X position of the viewport.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Viewport.Y">
+            <summary>
+            Y position of the viewport.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Viewport.Width">
+            <summary>
+            Width of the viewport.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.Viewport.Height">
+            <summary>
+            Height of the viewport.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Viewport.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.Viewport.ContainsGamePoint(Portal.GamePoint)">
+            <summary>
+            Check if a game point is within the viewport.
+            </summary>
+            <param name="InPoint">Game point to check.</param>
+            <returns>True if the game point is within the viewport, false otherwise.</returns>
+        </member>
+        <member name="T:OSRSHelpers.GodlikeClient">
+            <summary>
+            This class is used to connect to the Godlike server.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.GodlikeClient.WebSocketClient">
+            <summary>
+            WebSocket client.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.GodlikeClient.Subscribers">
+            <summary>
+            Data subscribers.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.GodlikeClient.Values">
+            <summary>
+            Old values of data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.GodlikeClient.LastMessageID">
+            <summary>
+            Last message ID, used to identify messages. Will increment for each message sent.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.GodlikeClient.Responses">
+            <summary>
+            Responses from the server.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Start">
+            <summary>
+            Starts the WebSocket connection.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Stop">
+            <summary>
+            Stops the WebSocket connection.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.SendMessage(System.String,System.Boolean)">
+            <summary>
+            Sends a message to the server.
+            <br/><br/>
+            Possible message types:
+            <br/>
+            <list type="bullet">
+            <item>
+            <description>
+            force #handler: Forces an update of data, specify #handler to only force update a specific handler.<br/>
+            Example: "force npc" will force an update of the NPC handler.
+            </description>
+            </item>
+            <item>
+            <description>
+            fetch #handler: Fetches data from specifed #handler, if <paramref name="InbWaitForResponse"/> is true, the method will wait and return the response when available, if false, the method will not wait and return null.<br/>
+            Example: "fetch npc" will fetch data of the NPC handler, and return the response if <paramref name="InbWaitForResponse"/> is true.
+            </description>
+            </item>
+            <item>
+            <description>
+            set #var #value: Sets a #var to the specified #value.<br/>
+            Example: "set close_npcs_max_distance 1500" will set the close_npcs_max_distance of the CloseNPCsHandler to 1500, which means it will only return npcs within 1500 units.
+            </description>
+            </item>
+            </list>
+            </summary>
+            <param name="InMessage">The message to send.</param>
+            <param name="InbWaitForResponse">Whether to wait for a response or not. If true, the method will return the response, if false, the method will return null.</param>
+            <returns>Response from the server, if <paramref name="InbWaitForResponse"/> is true, otherwise null.</returns>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.ProcessContent(System.String)">
+            <summary>
+            Process the content of a websocket message, and call subscribers.
+            </summary>
+            <param name="InContent">Content of the response.</param>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Subscribe(System.String,System.String,System.Action{System.String})">
+             <summary>
+             Subscribe to a data key.
+             Subscribers will be cleared when the script is stopped.
+            
+             When data is received, <paramref name="InAction"/> is called with the data as a string, if the data has changed.
+            
+             Subscribing to a key will only retrieve data for that key, and not the entire container.
+             </summary>
+             <param name="InDataContainer">Container to subscribe to.</param>
+             <param name="InDataKey">Key to subscribe to.</param>
+             <param name="InAction">Action to call when data is received.</param>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Subscribe(System.String,System.Action{System.String})">
+             <summary>
+             Subscribe to a data container, without a key, which will retrieve all data in the container.
+             Subscribers will be cleared when the script is stopped.
+            
+             When data is received, <paramref name="InAction"/> is called with the data as a string, if the data has changed.
+            
+             Subscribing to a container will retrieve all data in the container, and not just a single key.
+             </summary>
+             <param name="InDataContainer">Container to subscribe to.</param>
+             <param name="InAction">Action to call when data is received.</param>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Unsubscribe(System.String,System.String,System.Action{System.String})">
+            <summary>
+            Unsubscribe from a data key.
+            </summary>
+            <param name="InDataContainer">Container to unsubscribe from.</param>
+            <param name="InDataKey">Key to unsubscribe from.</param>
+            <param name="InAction">Action to unsubscribe.</param>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Unsubscribe(System.String,System.Action{System.String})">
+            <summary>
+            Unsubscribe from a data container, without a key.
+            </summary>
+            <param name="InDataContainer">Container to unsubscribe from.</param>
+            <param name="InAction">Action to unsubscribe.</param>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.WaitForConnection">
+            <summary>
+            Wait for the WebSocket to connect.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Helpers">
+            <summary>
+            Helper functions for OSRSHelpers.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Helpers.MAGIC_NUMBER_X">
+            <summary>
+            The border of the game window is 4 pixels wide, atleast on windows 11.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Helpers.MAGIC_NUMBER_Y">
+            <summary>
+            The header of the game window is 27 pixels tall, atleast on windows 11.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.GetPositionFromData(System.Text.Json.JsonElement)">
+            <summary>
+            Get a GamePoint from data.
+            </summary>
+            <param name="InData">Data to get the GamePoint from.</param>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.GetRegionFromData(System.Text.Json.JsonElement)">
+            <summary>
+            Get a GameRegion from data.
+            </summary>
+            <param name="InData">Data to get the GameRegion from.</param>
+            <returns>The GameRegion.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.LocalToCanvas(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Converts a local point to a GamePoint.
+            </summary>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
+            <param name="InTileHeight">Tile height.</param>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="T:OSRSHelpers.OSRSExtension">
+             <summary>
+             OSRS Helper Extension
+            
+             Call OSRSExtension.Initialize() in your script start to use this extension.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.Loaded">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.GetRegisterableScriptTypes">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.Initialize">
+            <summary>
+            Must be called in script start for this extension to work
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Shared">
+            <summary>
+            Shared class, contains shared functionality.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.GodlikeClient">
+            <summary>
+            WebSocket client to use.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.BankInfo">
+            <summary>
+            Current bank.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.CameraInfo">
+            <summary>
+            Current camera.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.CloseNPCsInfo">
+            <summary>
+            Close npcs.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.CloseObjectsInfo">
+            <summary>
+            Close objects.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.ClosePlayersInfo">
+            <summary>
+            Close players.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.EquipmentInfo">
+            <summary>
+            Player's equipment.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.GameInfo">
+            <summary>
+            Current game information like tick and logged in state.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.InventoryInfo">
+            <summary>
+            Player's inventory.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.LootInfo">
+            <summary>
+            Ground loot.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.NPCInfo">
+            <summary>
+            Current NPC you're fighting/interracting with.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.SkillsInfo">
+            <summary>
+            Current skills of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.StatusInfo">
+            <summary>
+            Current status of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.UIInfo">
+            <summary>
+            Current UI.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.UIMenuInfo">
+            <summary>
+            Current UIMenu.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.ViewportInfo">
+            <summary>
+            Current viewport.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.ZoomLevels">
+            <summary>
+            Zoom level to use.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.LoginWorkerInstance">
+            <summary>
+            Login worker instance.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.PrayerFlickWorkerInstance">
+            <summary>
+            Prayer flick worker instance.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.SimpleCombatWorkerInstance">
+            <summary>
+            Simple combat worker instance.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Shared.Initialize">
+            <summary>
+            Initialize the shared class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Shared.OpenRightClickMenu(Portal.GameRegion,System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Nullable{Portal.Input.MouseMoveOptions})">
+            <summary>
+            Tries to open the right click menu at the current mouse position, and click the specified option.
+            </summary>
+            <param name="InOpenAtRegion">Region to open the menu at. If null, defaults to current mouse position.</param>
+            <param name="InOptionToClick">Option to click. Defaults to null.</param>
+            <param name="InOptionTarget">Target of the option. Defaults to null.</param>
+            <param name="InDelayBeforeClick">Delay before clicking the option. Defaults to 100ms.</param>
+            <param name="InDelayBeforeFindMenu">Delay after right clicking and before finding the menu. Defaults to 100ms.</param>
+            <param name="InbClickCancelOnNotFound">Whether or not to click cancel if the option is not found. Defaults to true.</param>
+            <param name="InMouseMoveOptions">Mouse move options to use. Defaults to null.</param>
+            <returns>Whether or not the option was found and clicked.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.OpenRightClickMenu(System.Nullable{Portal.GamePoint},System.String,System.String,System.Int32,System.Int32,System.Boolean,System.Nullable{Portal.Input.MouseMoveOptions})">
+            <summary>
+            Tries to open the right click menu at the specified point, and click the specified option.
+            </summary>
+            <param name="InOpenAtPoint">Point to open the menu at. Defaults to current mouse position.</param>
+            <param name="InOptionToClick">Option to click. Defaults to null.</param>
+            <param name="InOptionTarget">Target of the option. Defaults to null.</param>
+            <param name="InDelayBeforeClick">Delay before clicking the option. Defaults to 100ms.</param>
+            <param name="InDelayBeforeFindMenu">Delay after right clicking and before finding the menu. Defaults to 100ms.</param>
+            <param name="InbClickCancelOnNotFound">Whether or not to click cancel if the option is not found. Defaults to true.</param>
+            <param name="InMouseMoveOptions">Mouse move options to use. Defaults to null.</param>
+            <returns>Whether or not the option was found and clicked.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.FindMouseTooltipText(System.String,System.String,System.Nullable{Vortice.Mathematics.Color},System.Nullable{Portal.GamePoint},Portal.Detect.RepeatOptions)">
+            <summary>
+            Tries to find the hover text.
+            </summary>
+            <param name="InText">Text to find.</param>
+            <param name="InTextLibrary">Text library to use. Defaults to "Helpers/TextLibraries/RightClick".</param>
+            <param name="InTextColor">Text color. Defaults to new Color(215, 215, 215) if null.</param>
+            <param name="InMaxTooltipSize">Maximum size of the tooltip. Defaults to see (200x, 20y) if null.</param>
+            <param name="InRepeatOptions">Repeat options.</param>
+            <returns>Whether or not the text was found.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.MakePointOutsideRegion(Portal.GameRegion)">
+            <summary>
+            Makes a random point outside of the given region.
+            </summary>
+            <param name="InRegion">Region to make the point outside of.</param>
+            <returns>Random point outside of the given region.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.WaitForLoggedIn(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Waits for the player to be logged in.
+            </summary>
+            <param name="InMaxTries">Maximum tries. Defaults to 1000.</param>
+            <param name="InMinWait">Minimum random wait. Defaults to 100ms.</param>
+            <param name="InMaxWait">Maximum random wait. Defaults to 300ms.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.WaitForIdle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Waits for the player to be idle.
+            </summary>
+            <param name="InMaxTries">Maximum tries. Defaults to 100.</param>
+            <param name="InMinWait">Minimum random wait. Defaults to 100ms.</param>
+            <param name="InMaxWait">Maximum random wait. Defaults to 300ms.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.WaitForTicks(System.Int32,System.Int32)">
+            <summary>
+            Waits for the specified amount of game ticks.
+            </summary>
+            <param name="InTicks">Amount of ticks to wait for.</param>
+            <param name="InTimeout">Timeout in milliseconds. Defaults to 10000ms.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.LoginIfLoggedOut">
+            <summary>
+            Logs in if the player is logged out. Will not use the username and password, only the saved logins like in OSRS.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Shared.LoginIfLoggedOut(System.String,System.String)">
+            <summary>
+            Logs in if the player is logged out.
+            </summary>
+            <param name="InUsername">Username to log in with.</param>
+            <param name="InPassword">Password to log in with.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.GetOpenTab">
+            <summary>
+            Gets the open tab.
+            </summary>
+            <returns>Open tab type.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.IsTabOpen(OSRSHelpers.Types.ETabType)">
+            <summary>
+            Checks if the specified tab is open.
+            </summary>
+            <param name="InTab">Tab to check.</param>
+            <returns>Whether or not the tab is open.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType)">
+            <summary>
+            Tries to open the specified tab.
+            </summary>
+            <param name="InTab">Tab to open.</param>
+            <returns>Whether or not the tab is open.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.CloseWindow(System.Nullable{Portal.GameRegion})">
+            <summary>
+            Tries to find the close button, and closes the window.
+            </summary>
+            <param name="InRegion">Region to search in. Defaults to null, which will search the entire game window.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.ZoomFullyIn">
+            <summary>
+            Zooms all the way in.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Shared.ZoomFullyOut">
+            <summary>
+            Zooms all the way out.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Shared.Zoom(System.Int32)">
+            <summary>
+            Zooms out to the specified zoom value.
+            </summary>
+            <param name="InValue">Zoom value.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.Zoom(System.String,System.Int32)">
+            <summary>
+            Zooms out to the specified zoom level ID.
+            
+            A zoom level ID is a string that is used to identify a specific zoom level.
+            
+            Will use "Default" which is 500 if the zoom level ID is not found.
+            </summary>
+            <param name="InID">Zoom level ID. Will use "Default" if null.</param>
+            <param name="InZoomOffset">Offset to the zoom level. Defaults to 0.</param>
+        </member>
+        <member name="T:OSRSHelpers.Signals">
+            <summary>
+            Signals for OSRSHelpers.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnLogin">
+            <summary>
+            Signal for when logged in.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnLogout">
+            <summary>
+            Signal for when logged out.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnCameraChanged">
+            <summary>
+            Signal for when the camera changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnCloseNPCsChanged">
+            <summary>
+            Signal for when the close npcs changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnCloseObjectsChanged">
+            <summary>
+            Signal for when the close objects changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnClosePlayersChanged">
+            <summary>
+            Signal for when the close remote players changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnGameChanged">
+            <summary>
+            Signal for when the player's status changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnNPCChanged">
+            <summary>
+            Signal for when an NPC is interacted with changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnStatusChanged">
+            <summary>
+            Signal for when the player's status changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnUIChanged">
+            <summary>
+            Signal for when the player's ui changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnUIMenuChanged">
+            <summary>
+            Signal for when the player's ui menu (right click menu) changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnViewportChanged">
+            <summary>
+            Signal for when the viewport changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnLootChanged">
+            <summary>
+            Signal for when loot appears.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnInventoryChanged">
+            <summary>
+            Signal for when the inventory changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnInventoryFull">
+            <summary>
+            Signal for when the inventory is full.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnInventoryEmpty">
+            <summary>
+            Signal for when the inventory is empty.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnEquipmentChanged">
+            <summary>
+            Signal for when the equipment changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnInventoryOrEquipmentChanged">
+            <summary>
+            Signal for when the inventory or equipment changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnTick">
+            <summary>
+            Signal for when a tick happens.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnIdleChanged">
+            <summary>
+            Signal for when the player is idle.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Types.EHeadIcon">
+            <summary>
+            Overhead icons enum.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.NONE">
+            <summary>
+            No overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.MELEE">
+            <summary>
+            Melee overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.RANGED">
+            <summary>
+            Ranged overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.MAGIC">
+            <summary>
+            Magic overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.RETRIBUTION">
+            <summary>
+            Retribution overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.SMITE">
+            <summary>
+            Smite overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.REDEMPTION">
+            <summary>
+            Redemption overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.RANGE_MAGE">
+            <summary>
+            Range Mage overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.RANGE_MELEE">
+            <summary>
+            Range Melee overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.MAGE_MELEE">
+            <summary>
+            Mage Melee overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.RANGE_MAGE_MELEE">
+            <summary>
+            Range Mage Melee overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.WRATH">
+            <summary>
+            Wrath overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.SOUL_SPLIT">
+            <summary>
+            Soul Split overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.DEFLECT_MELEE">
+            <summary>
+            Deflect Melee overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.DEFLECT_RANGE">
+            <summary>
+            Deflect Range overhead icon.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EHeadIcon.DEFLECT_MAGE">
+            <summary>
+            Deflect Mage overhead icon.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Types.LocalPosition">
+            <summary>
+            Local position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.LocalPosition.X">
+            <summary>
+            X position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.LocalPosition.Y">
+            <summary>
+            Y position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.LocalPosition.TileHeight">
+            <summary>
+            Tile height.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="X">X position.</param>
+            <param name="Y">Y position.</param>
+            <param name="TileHeight">Tile height.</param>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.ToGamePoint">
+            <summary>
+            Convert to a GamePoint.
+            </summary>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="T:OSRSHelpers.Types.WorldPosition">
+            <summary>
+            World position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.WorldPosition.X">
+            <summary>
+            X position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.WorldPosition.Y">
+            <summary>
+            Y position.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.WorldPosition.Plane">
+            <summary>
+            Plane.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="X">X position.</param>
+            <param name="Y">Y position.</param>
+            <param name="Plane">Plane.</param>
+        </member>
+        <member name="T:OSRSHelpers.Types.EPrayer">
+            <summary>
+            Prayers
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Types.ETabType">
+            <summary>
+            The type of tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Inventory">
+            <summary>
+            The inventory tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Equipment">
+            <summary>
+            The equipment tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Stats">
+            <summary>
+            The stats tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Quests">
+            <summary>
+            The quests tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Prayer">
+            <summary>
+            The prayer tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Magic">
+            <summary>
+            The magic tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Friends">
+            <summary>
+            The friends tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Ignore">
+            <summary>
+            The ignore tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Clan">
+            <summary>
+            The clan tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Options">
+            <summary>
+            The options tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Emotes">
+            <summary>
+            The emotes tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Music">
+            <summary>
+            The music tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Logout">
+            <summary>
+            The logout tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Combat">
+            <summary>
+            The combat tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.AchievementDiary">
+            <summary>
+            The achievement diary tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Minigames">
+            <summary>
+            The minigames tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Grouping">
+            <summary>
+            The grouping tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Settings">
+            <summary>
+            The settings tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Bonds">
+            <summary>
+            The bonds tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.LogoutTab">
+            <summary>
+            The logout tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.None">
+            <summary>
+            No tab.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.LoginWorker">
+            <summary>
+            Login worker.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.LoginWorker.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.LoginWorker.OnTick">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.PrayerFlickWorker">
+            <summary>
+            Prayer flicking worker.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.PrayerFlickWorker.bIsPrayerFlicking">
+            <summary>
+            Is prayer flicking enabled?
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.OnTick">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.StartPrayerFlicking">
+             <summary>
+             Starts prayer flicking.
+            
+             Use this function to start prayer flicking, and do NOT use <see cref="!:PrayerFlickWorker.Start"/>.
+             Keep in mind that it starts paused the first time, so you need to call <see cref="!:PrayerFlickWorker.Unpause"/> as well to start it.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.StopPrayerFlicking">
+             <summary>
+             Stops prayer flicking.
+            
+             Use this function to stop prayer flicking, and do NOT use <see cref="!:PrayerFlickWorker.Stop"/>.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.PausePrayerFlicking">
+             <summary>
+             Pauses prayer flicking, will pause no matter the current state. If you want the prayer flicking to pause on the next activation, use <see cref="M:OSRSHelpers.PrayerFlickWorker.PausePrayerFlickingOnNextActive(System.Action)"/>.
+            
+             Calling this function is the same as calling <see cref="!:PrayerFlickWorker.Pause"/>.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.PausePrayerFlickingOnNextActive(System.Action)">
+            <summary>
+            Pauses prayer flicking on the next activation, so that you can do something while the prayer is active.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.PausePrayerFlickingOnNextInactive(System.Action)">
+            <summary>
+            Pauses prayer flicking on the next deactivation, so that you can do something while the prayer is inactive.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.UnpausePrayerFlicking">
+             <summary>
+             Unpauses prayer flicking.
+            
+             Calling this function is the same as calling <see cref="!:PrayerFlickWorker.Unpause"/>.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.WaitForPrayerFlickingToPause">
+            <summary>
+            Waits for the prayer flicking to pause.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.IsPrayerActive">
+            <summary>
+            Is the quick prayer button turned on?
+            </summary>
+            <returns>True if the quick prayer button is turned on, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.PrayerFlickWorker.GetPrayerActiveButton">
+            <summary>
+            Gets the quick prayer button while it is activated.
+            </summary>
+            <returns>The quick prayer button while it is activated, or null if it is not found.</returns>
+        </member>
+        <member name="T:OSRSHelpers.SimpleCombatWorker">
+            <summary>
+            Simple combat worker.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.TargetNames">
+            <summary>
+            List of target names to find.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.LootNames">
+            <summary>
+            List of item names to loot.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.FoodNames">
+            <summary>
+            Dictionary of items to use when the health is below the value.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.ItemsToClickOnFullInventory">
+            <summary>
+            List of items to click on when the inventory is full.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.ItemsToDropOnFullInventory">
+            <summary>
+            List of items to drop on full inventory.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.ItemsToUseOnPredicate">
+            <summary>
+            Dictionary of items to use when the predicate returns true, this is checked at the same time as food.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.LootAppearDelay">
+            <summary>
+            Delay for loot to appear, in milliseconds. Some NPCs have a long delay before loot appears.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.bUsePrayerFlicking">
+            <summary>
+            Should prayer flicking be used?
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.bIsAttacking">
+            <summary>
+            Is the worker active?
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.OnTick">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.StartAttacking">
+            <summary>
+            Starts attacking (starts combat worker). Remember to set the target names and loot names etc. Can be set via <see cref="P:OSRSHelpers.Shared.SimpleCombatWorkerInstance"/>.
+            <br/><br/>
+            Use this function to start combat, and do NOT use <see cref="!:SimpleCombatWorker.Start"/>.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.StopAttacking">
+            <summary>
+            Stops attacking (stops combat worker).
+            <br/><br/>
+            Use this function to stop combat, and do NOT use <see cref="!:SimpleCombatWorker.Stop"/>.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.PauseAttackingOnNextKill(System.Action)">
+            <summary>
+            Pauses combat worker on the next kill.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.WaitForAttackingToPause">
+            <summary>
+            Waits for the combat worker to pause.
+            </summary>
+        </member>
+    </members>
+</doc>
