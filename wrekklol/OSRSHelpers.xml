@@ -2128,6 +2128,11 @@
             Signal for when the camera changes.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Signals.OnChatChanged">
+            <summary>
+            Signal for when the chat changes.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Signals.OnCloseNPCsChanged">
             <summary>
             Signal for when the close npcs changes.
