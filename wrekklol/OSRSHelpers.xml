@@ -1289,7 +1289,7 @@
             Loot data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.ChatMessageData.Name">
+        <member name="P:OSRSHelpers.DataTypes.ChatMessageData.Sender">
             <summary>
             Name of the sender.
             </summary>
