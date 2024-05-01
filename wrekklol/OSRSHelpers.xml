@@ -1924,6 +1924,13 @@
             </code>
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Shared.bUseKeybindForTabs">
+            <summary>
+            Whether or not to use keybinds for tabs.
+            <br/><br/>
+            See <see cref="P:OSRSHelpers.Shared.TabKeybindings"/> for more information.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Shared.LoginWorkerInstance">
             <summary>
             Login worker instance.
@@ -2047,12 +2054,11 @@
             <param name="InbShouldForceUpdate">If true, force update the tabs before checking. Defaults to true.</param>
             <returns>Whether or not the tab is open.</returns>
         </member>
-        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType,System.Boolean,System.Boolean)">
+        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType,System.Boolean)">
             <summary>
             Tries to open the specified tab.
             </summary>
             <param name="InTab">Tab to open.</param>
-            <param name="InbUseKeybinding">If true, use the keybinding to open the tab, see <see cref="P:OSRSHelpers.Shared.TabKeybindings"/>. Defaults to false.</param>
             <param name="InbShouldForceUpdate">If true, force update the tabs before opening. Defaults to true.</param>
             <returns>Whether or not the tab is open.</returns>
         </member>
