@@ -4,56 +4,6 @@
         <name>OSRSHelpers</name>
     </assembly>
     <members>
-        <member name="T:OSRSHelpers.Cache">
-            <summary>
-            Cache class, contains cached values like templates, points, regions and grids.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.Cache.Points">
-            <summary>
-            Cached points.
-            
-            Can be overridden like this: <c>Points["ScreenCenter"] = GamePoint.MakeFromPercent(50, 50);</c>
-            Or like this: <c>Points["ScreenCenter"] = () => GamePoint.MakeFromPercent(50, 50);</c>
-            
-            If you use the second method and InbDeferCache is true, it calls the action when it has to get the value and then caches it, otherwise it calls the action immediately to cache the value.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.Cache.Regions">
-            <summary>
-            Cached regions.
-            
-            Can be overridden like this: <c>Regions["ScreenCenter"] = GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100);</c>
-            Or like this: <c>Regions["ScreenCenter"] = () => GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100);</c>
-            
-            If you use the second method and InbDeferCache is true, it calls the action when it has to get the value and then caches it, otherwise it calls the action immediately to cache the value.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.Cache.Grids">
-            <summary>
-            Cached grids.
-            
-            Can be overridden like this: <c>Grids["Inventory"] = new GameGrid(GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100), ...);</c>
-            Or like this: <c>Grids["Inventory"] = () => new GameGrid(GameRegion.MakeFromGameCoordsClamped(0, 0, 100, 100), ...);</c>
-            
-            If you use the second method and InbDeferCache is true, it calls the action when it has to get the value and then caches it, otherwise it calls the action immediately to cache the value.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.Cache.DigitLib_Chat">
-            <summary>
-            Cached digit library for chat.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.Cache.DigitLib_OpponentInfo">
-            <summary>
-            Cached digit library for opponent info.
-            </summary>
-        </member>
-        <member name="M:OSRSHelpers.Cache.Initialize">
-            <summary>
-            Initializes the cache.
-            </summary>
-        </member>
         <member name="T:OSRSHelpers.GodlikeClient">
             <summary>
             This class is used to connect to the Godlike server.
@@ -1664,6 +1614,11 @@
             UI class.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.DataTypes.UIHandler.Tabs">
+            <summary>
+            List of ui tabs, like inventory, equipment, etc.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.DataTypes.UIHandler.Prayers">
             <summary>
             List of ui prayers.
@@ -1947,6 +1902,28 @@
             Zoom level to use.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Shared.TabKeybindings">
+            <summary>
+            Tab keybindings.
+            <br/><br/>
+            Default keybindings:
+            <code>
+            [ETabType.Combat] = EKey.F1,
+            [ETabType.Skills] = EKey.F2,
+            [ETabType.Quests] = EKey.F3,
+            [ETabType.Inventory] = EKey.F4,
+            [ETabType.Equipment] = EKey.F8,
+            [ETabType.Prayer] = EKey.F9,
+            [ETabType.Magic] = EKey.F10,
+            [ETabType.Logout] = EKey.F11,
+            [ETabType.Options] = EKey.F12
+            </code><br/>
+            If you want to customize these, you can do so in your script by setting the keybindings like so:<br/>
+            <code>
+            TabKeybindings[ETabType.Inventory] = EKey.F12;
+            </code>
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Shared.LoginWorkerInstance">
             <summary>
             Login worker instance.
@@ -2043,36 +2020,40 @@
             <param name="InTicks">Amount of ticks to wait for.</param>
             <param name="InTimeout">Timeout for each wait in milliseconds. Defaults to 10000ms.</param>
         </member>
-        <member name="M:OSRSHelpers.Shared.LoginIfLoggedOut">
+        <member name="M:OSRSHelpers.Shared.AutoLoginIfLoggedOut">
             <summary>
             Logs in if the player is logged out. Will not use the username and password, only the saved logins like in OSRS.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.Shared.LoginIfLoggedOut(System.String,System.String)">
+        <member name="M:OSRSHelpers.Shared.AutoLoginIfLoggedOut(System.String,System.String)">
             <summary>
             Logs in if the player is logged out.
             </summary>
             <param name="InUsername">Username to log in with.</param>
             <param name="InPassword">Password to log in with.</param>
         </member>
-        <member name="M:OSRSHelpers.Shared.GetOpenTab">
+        <member name="M:OSRSHelpers.Shared.GetOpenTab(System.Boolean)">
             <summary>
             Gets the open tab.
             </summary>
+            <param name="InbShouldForceUpdate">If true, force update the tabs before checking. Defaults to true.</param>
             <returns>Open tab type.</returns>
         </member>
-        <member name="M:OSRSHelpers.Shared.IsTabOpen(OSRSHelpers.Types.ETabType)">
+        <member name="M:OSRSHelpers.Shared.IsTabOpen(OSRSHelpers.Types.ETabType,System.Boolean)">
             <summary>
             Checks if the specified tab is open.
             </summary>
             <param name="InTab">Tab to check.</param>
+            <param name="InbShouldForceUpdate">If true, force update the tabs before checking. Defaults to true.</param>
             <returns>Whether or not the tab is open.</returns>
         </member>
-        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType)">
+        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType,System.Boolean,System.Boolean)">
             <summary>
             Tries to open the specified tab.
             </summary>
             <param name="InTab">Tab to open.</param>
+            <param name="InbUseKeybinding">If true, use the keybinding to open the tab, see <see cref="P:OSRSHelpers.Shared.TabKeybindings"/>. Defaults to false.</param>
+            <param name="InbShouldForceUpdate">If true, force update the tabs before opening. Defaults to true.</param>
             <returns>Whether or not the tab is open.</returns>
         </member>
         <member name="M:OSRSHelpers.Shared.CloseWindow(System.Nullable{Portal.GameRegion})">
@@ -2390,9 +2371,55 @@
             Prayers
             </summary>
         </member>
+        <member name="T:OSRSHelpers.Types.UITab">
+            <summary>
+            Tab class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.UITab.Type">
+            <summary>
+            Type of the tab.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.UITab.Region">
+            <summary>
+            Region of the tab.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.UITab.bIsActive">
+            <summary>
+            Is tab active?
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.UITab.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InData">The data to set from.</param>
+        </member>
         <member name="T:OSRSHelpers.Types.ETabType">
             <summary>
             The type of tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.None">
+            <summary>
+            No tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Combat">
+            <summary>
+            The combat tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Skills">
+            <summary>
+            The skills tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.Quests">
+            <summary>
+            The quests tab.
             </summary>
         </member>
         <member name="F:OSRSHelpers.Types.ETabType.Inventory">
@@ -2405,16 +2432,6 @@
             The equipment tab.
             </summary>
         </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Stats">
-            <summary>
-            The stats tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Quests">
-            <summary>
-            The quests tab.
-            </summary>
-        </member>
         <member name="F:OSRSHelpers.Types.ETabType.Prayer">
             <summary>
             The prayer tab.
@@ -2423,6 +2440,11 @@
         <member name="F:OSRSHelpers.Types.ETabType.Magic">
             <summary>
             The magic tab.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.ETabType.FriendsChat">
+            <summary>
+            The friends chat tab.
             </summary>
         </member>
         <member name="F:OSRSHelpers.Types.ETabType.Friends">
@@ -2435,9 +2457,9 @@
             The ignore tab.
             </summary>
         </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Clan">
+        <member name="F:OSRSHelpers.Types.ETabType.Logout">
             <summary>
-            The clan tab.
+            The logout tab.
             </summary>
         </member>
         <member name="F:OSRSHelpers.Types.ETabType.Options">
@@ -2455,55 +2477,12 @@
             The music tab.
             </summary>
         </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Logout">
-            <summary>
-            The logout tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Combat">
-            <summary>
-            The combat tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.AchievementDiary">
-            <summary>
-            The achievement diary tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Minigames">
-            <summary>
-            The minigames tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Grouping">
-            <summary>
-            The grouping tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Settings">
-            <summary>
-            The settings tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.Bonds">
-            <summary>
-            The bonds tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.LogoutTab">
-            <summary>
-            The logout tab.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Types.ETabType.None">
-            <summary>
-            No tab.
-            </summary>
-        </member>
         <member name="T:OSRSHelpers.LoginWorker">
-            <summary>
-            Login worker.
-            </summary>
+             <summary>
+             Login worker.
+            
+             When no username or password is provided, it will try to use the saved login.
+             </summary>
         </member>
         <member name="M:OSRSHelpers.LoginWorker.#ctor">
             <summary>
@@ -2512,6 +2491,13 @@
         </member>
         <member name="M:OSRSHelpers.LoginWorker.OnTick">
             <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.LoginWorker.TryLogin(System.String,System.String)">
+            <summary>
+            Tries to login. When no username or password is provided, it will try to use the saved login.
+            </summary>
+            <param name="InUsername">Username to login with.</param>
+            <param name="InPassword">Password to login with.</param>
         </member>
         <member name="T:OSRSHelpers.PrayerFlickWorker">
             <summary>
@@ -2620,6 +2606,18 @@
         <member name="P:OSRSHelpers.SimpleCombatWorker.ItemsToUseOnPredicate">
             <summary>
             Dictionary of items to use when the predicate returns true, this is checked at the same time as food.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.PauseOnPredicate">
+            <summary>
+            List of predicates to pause combat worker if any of them return true.
+            <br/><br/>
+            Should be used in combination with <see cref="M:OSRSHelpers.SimpleCombatWorker.WaitForAttackingToPause"/>.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.ActionOnkill">
+            <summary>
+            List of actions to perform on kill.
             </summary>
         </member>
         <member name="P:OSRSHelpers.SimpleCombatWorker.LootAppearDelay">
