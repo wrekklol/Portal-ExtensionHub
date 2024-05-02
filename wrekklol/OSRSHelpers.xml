@@ -1584,6 +1584,39 @@
             <param name="InPrayers">Prayers to check.</param>
             <returns>True if the player has all of the prayers active.</returns>
         </member>
+        <member name="M:OSRSHelpers.DataTypes.StatusHandler.EnablePrayer(System.Collections.Generic.IEnumerable{OSRSHelpers.Types.EPrayer},System.Boolean)">
+            <summary>
+            Opens the prayer tab and enables prayers if they are not active.
+            </summary>
+            <param name="InPrayers">Prayers to enable.</param>
+            <param name="InbShouldForceUpdate">If true, force update the prayers before enabling.</param>
+            <returns>True if the prayers were enabled, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.StatusHandler.DisablePrayer(System.Collections.Generic.IEnumerable{OSRSHelpers.Types.EPrayer},System.Boolean)">
+            <summary>
+            Opens the prayer tab and disables prayers if they are active.
+            </summary>
+            <param name="InPrayers">Prayers to disable.</param>
+            <param name="InbShouldForceUpdate">If true, force update the prayers before disabling.</param>
+            <returns>True if the prayers were disabled, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.StatusHandler.TogglePrayer(System.Collections.Generic.IEnumerable{OSRSHelpers.Types.EPrayer},System.Boolean)">
+            <summary>
+            Opens the prayer tab and clicks prayers.
+            </summary>
+            <param name="InPrayers">Prayers to click.</param>
+            <param name="InbShouldForceUpdate">If true, force update the prayers before clicking.</param>
+            <returns>True if the prayers were clicked, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.StatusHandler.ClickPrayer(System.Collections.Generic.IEnumerable{OSRSHelpers.Types.EPrayer},System.Predicate{OSRSHelpers.Types.EPrayer},System.Boolean)">
+            <summary>
+            Opens the prayer tab and clicks prayers.
+            </summary>
+            <param name="InPrayers">Prayers to click.</param>
+            <param name="InPredicate">Predicate to check if the prayers should be clicked.</param>
+            <param name="InbShouldForceUpdate">If true, force update the prayers before clicking.</param>
+            <returns>True if the prayers were clicked, false otherwise.</returns>
+        </member>
         <member name="T:OSRSHelpers.DataTypes.ChatMessageData">
             <summary>
             Loot data.
