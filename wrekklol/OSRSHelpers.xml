@@ -1056,349 +1056,119 @@
             Skills class.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.AttackCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Attack">
             <summary>
-            Attack base level.
+            Attack skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.AttackMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Strength">
             <summary>
-            Attack skill level.
+            Strength skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.AttackXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Defence">
             <summary>
-            Attack experience.
+            Defence skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.StrengthCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Ranged">
             <summary>
-            Strength base level.
+            Ranged skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.StrengthMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Prayer">
             <summary>
-            Strength skill level.
+            Prayer skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.StrengthXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Magic">
             <summary>
-            Strength experience.
+            Magic skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.DefenceCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Runecrafting">
             <summary>
-            Defence base level.
+            Runecrafting skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.DefenceMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Construction">
             <summary>
-            Defence skill level.
+            Construction skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.DefenceXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Hitpoints">
             <summary>
-            Defence experience.
+            Hitpoints skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.RangedCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Agility">
             <summary>
-            Ranged base level.
+            Agility skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.RangedMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Herblore">
             <summary>
-            Ranged skill level.
+            Herblore skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.RangedXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Thieving">
             <summary>
-            Ranged experience.
+            Thieving skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.PrayerCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Crafting">
             <summary>
-            Prayer base level.
+            Crafting skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.PrayerMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Fletching">
             <summary>
-            Prayer skill level.
+            Fletching skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.PrayerXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Slayer">
             <summary>
-            Prayer experience.
+            Slayer skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.MagicCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Hunter">
             <summary>
-            Magic base level.
+            Hunter skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.MagicMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Mining">
             <summary>
-            Magic skill level.
+            Mining skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.MagicXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Smithing">
             <summary>
-            Magic experience.
+            Smithing skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.RunecraftingCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Fishing">
             <summary>
-            Runecrafting base level.
+            Fishing skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.RunecraftingMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Cooking">
             <summary>
-            Runecrafting skill level.
+            Cooking skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.RunecraftingXP">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Firemaking">
             <summary>
-            Runecrafting experience.
+            Firemaking skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.ConstructionCur">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Woodcutting">
             <summary>
-            Construction base level.
+            Woodcutting skill data.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.ConstructionMax">
+        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Farming">
             <summary>
-            Construction skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.ConstructionXP">
-            <summary>
-            Construction experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HitpointsCur">
-            <summary>
-            Hitpoints base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HitpointsMax">
-            <summary>
-            Hitpoints skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HitpointsXP">
-            <summary>
-            Hitpoints experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.AgilityCur">
-            <summary>
-            Agility base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.AgilityMax">
-            <summary>
-            Agility skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.AgilityXP">
-            <summary>
-            Agility experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HerbloreCur">
-            <summary>
-            Herblore base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HerbloreMax">
-            <summary>
-            Herblore skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HerbloreXP">
-            <summary>
-            Herblore experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.ThievingCur">
-            <summary>
-            Thieving base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.ThievingMax">
-            <summary>
-            Thieving skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.ThievingXP">
-            <summary>
-            Thieving experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.CraftingCur">
-            <summary>
-            Crafting base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.CraftingMax">
-            <summary>
-            Crafting skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.CraftingXP">
-            <summary>
-            Crafting experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FletchingCur">
-            <summary>
-            Fletching base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FletchingMax">
-            <summary>
-            Fletching skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FletchingXP">
-            <summary>
-            Fletching experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.SlayerCur">
-            <summary>
-            Slayer base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.SlayerMax">
-            <summary>
-            Slayer skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.SlayerXP">
-            <summary>
-            Slayer experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HunterCur">
-            <summary>
-            Hunter base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HunterMax">
-            <summary>
-            Hunter skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.HunterXP">
-            <summary>
-            Hunter experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.MiningCur">
-            <summary>
-            Mining base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.MiningMax">
-            <summary>
-            Mining skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.MiningXP">
-            <summary>
-            Mining experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.SmithingCur">
-            <summary>
-            Smithing base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.SmithingMax">
-            <summary>
-            Smithing skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.SmithingXP">
-            <summary>
-            Smithing experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FishingCur">
-            <summary>
-            Fishing base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FishingMax">
-            <summary>
-            Fishing skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FishingXP">
-            <summary>
-            Fishing experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.CookingCur">
-            <summary>
-            Cooking base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.CookingMax">
-            <summary>
-            Cooking skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.CookingXP">
-            <summary>
-            Cooking experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FiremakingCur">
-            <summary>
-            Firemaking base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FiremakingMax">
-            <summary>
-            Firemaking skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FiremakingXP">
-            <summary>
-            Firemaking experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.WoodcuttingCur">
-            <summary>
-            Woodcutting base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.WoodcuttingMax">
-            <summary>
-            Woodcutting skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.WoodcuttingXP">
-            <summary>
-            Woodcutting experience.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FarmingCur">
-            <summary>
-            Farming base level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FarmingMax">
-            <summary>
-            Farming skill level.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.SkillsHandler.FarmingXP">
-            <summary>
-            Farming experience.
+            Farming skill data.
             </summary>
         </member>
         <member name="P:OSRSHelpers.DataTypes.SkillsHandler.Total">
@@ -1987,6 +1757,37 @@
             </summary>
             <param name="InJson">Json data to parse.</param>
         </member>
+        <member name="T:OSRSHelpers.DataTypes.SkillData">
+            <summary>
+            Skill data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.SkillData.Type">
+            <summary>
+            Type of the skill.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.SkillData.CurrentLevel">
+            <summary>
+            Current level of the skill.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.SkillData.MaxLevel">
+            <summary>
+            Maximum level of the skill.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.SkillData.Experience">
+            <summary>
+            Experience of the skill.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.SkillData.ApplyNewData(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Applies new data to the skill.
+            </summary>
+            <param name="InJson">Json data to apply.</param>
+        </member>
         <member name="T:OSRSHelpers.DataTypes.UIHandler">
             <summary>
             UI class.
@@ -2541,6 +2342,11 @@
             Signal for when an NPC is interacted with changes.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Signals.OnSkillsChanged">
+            <summary>
+            Signal for when the player's skills changes.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Signals.OnSlayerChanged">
             <summary>
             Signal for when the player's slayer changes.
@@ -2614,6 +2420,11 @@
         <member name="P:OSRSHelpers.Signals.OnIdleChanged">
             <summary>
             Signal for when the player is idle.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnSkillLevelUp">
+            <summary>
+            Signal for a skill has leveled up.
             </summary>
         </member>
         <member name="T:OSRSHelpers.Types.EHeadIcon">
@@ -2704,6 +2515,11 @@
         <member name="T:OSRSHelpers.Types.EChatMessageType">
             <summary>
             Chat message type enum.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Types.ESkillType">
+            <summary>
+            Skill type enum.
             </summary>
         </member>
         <member name="T:OSRSHelpers.Types.LocalPosition">
