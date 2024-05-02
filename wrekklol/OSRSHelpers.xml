@@ -2111,14 +2111,22 @@
             The header of the game window is 27 pixels tall, atleast on windows 11.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.Helpers.GetPositionFromData(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.Helpers.TryGetProperty(System.Text.Json.JsonElement,System.String)">
+            <summary>
+            Tries to get a property from data.
+            </summary>
+            <param name="InData">Data to get the property from.</param>
+            <param name="InName">Name of the property.</param>
+            <returns>The property, or null if it doesn't exist or is null.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.GetPositionFromData(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
             Get a GamePoint from data.
             </summary>
             <param name="InData">Data to get the GamePoint from.</param>
             <returns>The GamePoint.</returns>
         </member>
-        <member name="M:OSRSHelpers.Helpers.GetRegionFromData(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.Helpers.GetRegionFromData(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
             Get a GameRegion from data.
             </summary>
