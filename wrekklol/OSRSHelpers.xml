@@ -3008,7 +3008,7 @@
             Should be used in combination with <see cref="M:OSRSHelpers.SimpleCombatWorker.WaitForAttackingToPause"/>.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.SimpleCombatWorker.ActionOnkill">
+        <member name="P:OSRSHelpers.SimpleCombatWorker.ActionOnKill">
             <summary>
             List of actions to perform on kill.
             </summary>
