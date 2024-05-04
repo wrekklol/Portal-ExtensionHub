@@ -3071,6 +3071,13 @@
             Pauses combat worker on the next kill.
             </summary>
         </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.UnpauseAttacking">
+             <summary>
+             Unpauses attacking.
+            
+             Calling this function is the same as calling <see cref="!:SimpleCombatWorker.Unpause"/>.
+             </summary>
+        </member>
         <member name="M:OSRSHelpers.SimpleCombatWorker.WaitForAttackingToPause">
             <summary>
             Waits for the combat worker to pause.
