@@ -402,6 +402,170 @@
             <param name="InbShouldForceUpdate">If true, force update the players before clicking.</param>
             <returns>The closest player to the mouse.</returns>
         </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugHandler">
+            <summary>
+            Debug class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugHandler.Widgets">
+             <summary>
+             Widgets.
+            
+             Key is the ID of the widget.
+             </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowWidgetInspector">
+            <summary>
+            Shows the widget inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.HideWidgetInspector">
+            <summary>
+            Hides the widget inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowNPCInspector">
+            <summary>
+            Shows the NPC inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.HideNPCInspector">
+            <summary>
+            Hides the NPC inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowObjectInspector">
+            <summary>
+            Shows the widget inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.HideObjectInspector">
+            <summary>
+            Hides the object inspector.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugNPCInspector">
+            <summary>
+            Debug NPC inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugNPCInspector.#ctor(OSRSHelpers.DataTypes.CloseNPCsHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugNPCInspector.OnRender">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugObjectInspector">
+            <summary>
+            Debug widget inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugObjectInspector.#ctor(OSRSHelpers.DataTypes.CloseObjectsHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugObjectInspector.OnRender">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugWidgetInspector">
+            <summary>
+            Debug widget inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugWidgetInspector.#ctor(OSRSHelpers.DataTypes.DebugHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugWidgetInspector.OnRender">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugWidgetData">
+            <summary>
+            Debug widget data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ID">
+            <summary>
+            ID of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ParentID">
+            <summary>
+            Parent ID of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.bIsHidden">
+            <summary>
+            Is the widget hidden?
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.bIsSelfHidden">
+            <summary>
+            Is the widget self hidden?
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.Text">
+            <summary>
+            Text of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.Name">
+            <summary>
+            Name of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ItemID">
+            <summary>
+            Item ID of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ItemQuantity">
+            <summary>
+            Item quantity of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ItemQuantityMode">
+            <summary>
+            Item quantity mode of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ModelID">
+            <summary>
+            Model ID of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.ModelType">
+            <summary>
+            Model type of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.AnimationID">
+            <summary>
+            Animation ID of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.SpriteID">
+            <summary>
+            Sprite ID of the widget.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.DebugWidgetData.Region">
+            <summary>
+            Region of the widget.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugWidgetData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InJson">JSON data.</param>
+        </member>
         <member name="T:OSRSHelpers.DataTypes.EquipmentHandler">
             <summary>
             Equipment class.
@@ -2032,6 +2196,11 @@
         <member name="P:OSRSHelpers.Shared.ClosePlayersInfo">
             <summary>
             Close players.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.DebugInfo">
+            <summary>
+            Debug.
             </summary>
         </member>
         <member name="P:OSRSHelpers.Shared.EquipmentInfo">
