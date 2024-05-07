@@ -14,6 +14,11 @@
             WebSocket client.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.GodlikeClient.Port">
+            <summary>
+            Port to connect to.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.GodlikeClient.Subscribers">
             <summary>
             Data subscribers.
@@ -34,7 +39,12 @@
             Responses from the server.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.GodlikeClient.Start">
+        <member name="P:OSRSHelpers.GodlikeClient.bIsConnected">
+            <summary>
+            Whether the WebSocket is connected.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.GodlikeClient.Start(System.Int32)">
             <summary>
             Starts the WebSocket connection.
             </summary>
@@ -131,7 +141,7 @@
             Bank class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.BankHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.BankHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Bank class.
             </summary>
@@ -157,6 +167,11 @@
             Base handler class.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.DataTypes.BaseHandler.GodlikeClient">
+            <summary>
+            WebSocket client to use.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.DataTypes.BaseHandler.DataID">
             <summary>
             Data ID.
@@ -172,12 +187,13 @@
             Wrapper for thread safety.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.BaseHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.BaseHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Base data constructor.
             </summary>
             <param name="InDataID">Data ID. Will subscribe to data updates with this ID.</param>
             <param name="InWrapper">Wrapper for thread safety.</param>
+            <param name="InPortOffset">Port offset to use for the WebSocket client.</param>
         </member>
         <member name="M:OSRSHelpers.DataTypes.BaseHandler.SetFromJSON(System.String)">
             <summary>
@@ -220,7 +236,7 @@
             It contains the camera position/rotation.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.CameraHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.CameraHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Game camera class.
             <br/><br/>
@@ -285,7 +301,7 @@
             Chat class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ChatHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.ChatHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Chat class.
             </summary>
@@ -303,7 +319,7 @@
             Close NPCs class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.CloseNPCsHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.CloseNPCsHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Close NPCs class.
             </summary>
@@ -339,7 +355,7 @@
             CloseObjects class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.CloseObjectsHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.CloseObjectsHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             CloseObjects class.
             </summary>
@@ -373,7 +389,7 @@
             CloseObjects class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ClosePlayersHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.ClosePlayersHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             CloseObjects class.
             </summary>
@@ -414,7 +430,7 @@
              Key is the ID of the widget.
              </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.DebugHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Constructor.
             </summary>
@@ -571,7 +587,7 @@
             Equipment class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.EquipmentHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.EquipmentHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Equipment class.
             </summary>
@@ -592,7 +608,7 @@
             Game class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.GameHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.GameHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Game class.
             </summary>
@@ -685,7 +701,7 @@
             Inventory class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.InventoryHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.InventoryHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Inventory class.
             </summary>
@@ -703,7 +719,7 @@
              Call Initialize() in the constructor of the derived class.
              </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ItemContainerHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.ItemContainerHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
              <summary>
              Item container base class.
             
@@ -1086,7 +1102,7 @@
             Loot class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.LootHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.LootHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Loot class.
             </summary>
@@ -1126,7 +1142,7 @@
             NPC class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.NPCHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.NPCHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             NPC class.
             </summary>
@@ -1189,7 +1205,7 @@
             Shop class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ShopHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.ShopHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Shop class.
             </summary>
@@ -1215,7 +1231,7 @@
             Skills class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.SkillsHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.SkillsHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Skills class.
             </summary>
@@ -1348,7 +1364,7 @@
             Slayer class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.SlayerHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.SlayerHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Slayer class.
             </summary>
@@ -1376,7 +1392,7 @@
             Status class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.StatusHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.StatusHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Status class.
             </summary>
@@ -1957,7 +1973,7 @@
             UI class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.UIHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.UIHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             UI class.
             </summary>
@@ -2000,7 +2016,7 @@
             UI Menu class. It is the right click menu.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.UIMenuHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.UIMenuHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             UI Menu class. It is the right click menu.
             </summary>
@@ -2053,7 +2069,7 @@
             X and Y are the offset of the viewport from the top-left corner of the game window.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ViewportHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.ViewportHandler.#ctor(System.String,Portal.ThreadSafeWrapper,System.Int32)">
             <summary>
             Game viewport class.
             <br/><br/>
@@ -2141,31 +2157,36 @@
             <returns>The GamePoint.</returns>
         </member>
         <member name="T:OSRSHelpers.OSRSExtension">
-             <summary>
-             OSRS Helper Extension
-            
-             Call OSRSExtension.Initialize() in your script start to use this extension.
-             </summary>
+            <summary>
+            OSRS Helper Extension
+            </summary>
         </member>
-        <member name="M:OSRSHelpers.OSRSExtension.Loaded">
+        <member name="M:OSRSHelpers.OSRSExtension.OnLoaded">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.OnBeforeScriptStart">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.OnAfterScriptStart">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.OnBeforeScriptStop">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.OSRSExtension.OnAfterScriptStop">
             <inheritdoc />
         </member>
         <member name="M:OSRSHelpers.OSRSExtension.GetRegisterableScriptTypes">
             <inheritdoc />
-        </member>
-        <member name="M:OSRSHelpers.OSRSExtension.Initialize">
-            <summary>
-            Must be called in script start for this extension to work
-            </summary>
         </member>
         <member name="T:OSRSHelpers.Shared">
             <summary>
             Shared class, contains shared functionality.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.Shared.GodlikeClient">
+        <member name="P:OSRSHelpers.Shared.MessageClient">
             <summary>
-            WebSocket client to use.
+            WebSocket client to use for sending messages.
             </summary>
         </member>
         <member name="P:OSRSHelpers.Shared.BankInfo">
@@ -2261,6 +2282,11 @@
         <member name="P:OSRSHelpers.Shared.ViewportInfo">
             <summary>
             Current viewport.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.Handlers">
+            <summary>
+            Handlers.
             </summary>
         </member>
         <member name="P:OSRSHelpers.Shared.ZoomLevels">
@@ -3011,11 +3037,6 @@
         <member name="P:OSRSHelpers.SimpleCombatWorker.ActionOnKill">
             <summary>
             List of actions to perform on kill.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.SimpleCombatWorker.LootAppearDelay">
-            <summary>
-            Delay for loot to appear, in milliseconds. Some NPCs have a long delay before loot appears.
             </summary>
         </member>
         <member name="P:OSRSHelpers.SimpleCombatWorker.bUsePrayerFlicking">
