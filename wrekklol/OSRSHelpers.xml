@@ -1187,6 +1187,16 @@
             If true, the NPC has been tagged by someone else.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCHandler.Animation">
+            <summary>
+            Animation of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCHandler.AnimationPose">
+            <summary>
+            Pose of the NPC.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.DataTypes.NPCHandler.Position">
             <summary>
             Position of the NPC.
@@ -1801,6 +1811,16 @@
         <member name="P:OSRSHelpers.DataTypes.NPCData.bHasBeenTagged">
             <summary>
             If true, the NPC has been tagged by someone else.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCData.Animation">
+            <summary>
+            Animation of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCData.AnimationPose">
+            <summary>
+            Pose of the NPC.
             </summary>
         </member>
         <member name="P:OSRSHelpers.DataTypes.NPCData.Position">
@@ -3091,6 +3111,12 @@
             <summary>
             Pauses combat worker on the next kill.
             </summary>
+        </member>
+        <member name="M:OSRSHelpers.SimpleCombatWorker.PauseAttackingAfterLooting(System.Action)">
+            <summary>
+            Pauses attacking after looting.
+            </summary>
+            <param name="InOnPausedOnAfterLooting"></param>
         </member>
         <member name="M:OSRSHelpers.SimpleCombatWorker.UnpauseAttacking">
              <summary>
