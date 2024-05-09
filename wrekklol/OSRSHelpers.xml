@@ -402,6 +402,40 @@
             <param name="InbShouldForceUpdate">If true, force update the players before clicking.</param>
             <returns>The closest player to the mouse.</returns>
         </member>
+        <member name="T:OSRSHelpers.DataTypes.CloseWallsHandler">
+            <summary>
+            CloseWalls class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseWallsHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            CloseWalls class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.CloseWallsHandler.Walls">
+            <summary>
+            List of walls.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseWallsHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseWallsHandler.GetClosestWall(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the wall object.
+            </summary>
+            <param name="InNames">Names of the walls to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the walls before clicking.</param>
+            <returns>The closest wall.</returns>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.CloseWallsHandler.GetClosestToMouse(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get the closest wall to the mouse.
+            </summary>
+            <param name="InNames">Names of the walls to get.</param>
+            <param name="InbShouldForceUpdate">If true, force update the walls before clicking.</param>
+            <returns>The closest wall to the mouse.</returns>
+        </member>
         <member name="T:OSRSHelpers.DataTypes.DebugHandler">
             <summary>
             Debug class.
@@ -1194,6 +1228,24 @@
         <member name="M:OSRSHelpers.DataTypes.NPCHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
             <inheritdoc />
         </member>
+        <member name="T:OSRSHelpers.DataTypes.ProjectileHandler">
+            <summary>
+            Projectile class.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ProjectileHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Projectile class.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileHandler.Projectiles">
+            <summary>
+            List of projectiles.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ProjectileHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
+        </member>
         <member name="T:OSRSHelpers.DataTypes.ShopHandler">
             <summary>
             Shop class.
@@ -1875,6 +1927,102 @@
             </summary>
             <param name="InData">Data to set from.</param>
         </member>
+        <member name="T:OSRSHelpers.DataTypes.ProjectileData">
+            <summary>
+            Projectile data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.ID">
+            <summary>
+            ID of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.Hash">
+            <summary>
+            Hash of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.CycleStart">
+            <summary>
+            Start of the projectile cycle.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.CycleEnd">
+            <summary>
+            End of the projectile cycle.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.CycleRemaining">
+            <summary>
+            Remaining cyles in the projectile cycle.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.VelocityX">
+            <summary>
+            X velocity of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.VelocityY">
+            <summary>
+            Y velocity of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.VelocityZ">
+            <summary>
+            Z velocity of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.StartPosition">
+            <summary>
+            Start position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.StartLocalPosition">
+            <summary>
+            Start local position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.StartWorldPosition">
+            <summary>
+            Start world position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.TargetPosition">
+            <summary>
+            Target position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.TargetLocalPosition">
+            <summary>
+            Target local position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.TargetWorldPosition">
+            <summary>
+            Target world position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.CurrentPosition">
+            <summary>
+            Current position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.CurrentLocalPosition">
+            <summary>
+            Current local position of the projectile.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.ProjectileData.CurrentWorldPosition">
+            <summary>
+            Current world position of the projectile.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.ProjectileData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InData">Data to set from.</param>
+        </member>
         <member name="T:OSRSHelpers.DataTypes.RemotePlayerData">
             <summary>
             Remote player data.
@@ -1972,6 +2120,47 @@
             </summary>
             <param name="InJson">Json data to apply.</param>
         </member>
+        <member name="T:OSRSHelpers.DataTypes.WallData">
+            <summary>
+            Wall data.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.WallData.Name">
+            <summary>
+            Name of the wall.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.WallData.ID">
+            <summary>
+            ID of the wall.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.WallData.Hash">
+            <summary>
+            Hash of the wall.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.WallData.Position">
+            <summary>
+            Position of the wall.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.WallData.LocalPosition">
+            <summary>
+            Local position of the wall.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.WallData.WorldPosition">
+            <summary>
+            World position of the wall.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.WallData.#ctor(System.Text.Json.JsonElement)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InData">Data to set from.</param>
+        </member>
         <member name="T:OSRSHelpers.DataTypes.UIHandler">
             <summary>
             UI class.
@@ -2067,10 +2256,6 @@
             Game viewport class.
             <br/><br/>
             The viewport is the visible area of the game window.
-            <br/><br/>
-            It contains the X, Y, Width, and Height of the viewport.
-            <br/><br/>
-            X and Y are the offset of the viewport from the top-left corner of the game window.
             </summary>
         </member>
         <member name="M:OSRSHelpers.DataTypes.ViewportHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
@@ -2078,30 +2263,11 @@
             Game viewport class.
             <br/><br/>
             The viewport is the visible area of the game window.
-            <br/><br/>
-            It contains the X, Y, Width, and Height of the viewport.
-            <br/><br/>
-            X and Y are the offset of the viewport from the top-left corner of the game window.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.ViewportHandler.X">
+        <member name="P:OSRSHelpers.DataTypes.ViewportHandler.Region">
             <summary>
-            X position of the viewport.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.ViewportHandler.Y">
-            <summary>
-            Y position of the viewport.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.ViewportHandler.Width">
-            <summary>
-            Width of the viewport.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.ViewportHandler.Height">
-            <summary>
-            Height of the viewport.
+            Region of the viewport.
             </summary>
         </member>
         <member name="M:OSRSHelpers.DataTypes.ViewportHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
@@ -2142,6 +2308,14 @@
             Get a GamePoint from data.
             </summary>
             <param name="InData">Data to get the GamePoint from.</param>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.GetPositionFromData(System.Nullable{System.Text.Json.JsonElement},System.String)">
+            <summary>
+            Get a GamePoint from data.
+            </summary>
+            <param name="InData">Data to get the GamePoint from.</param>
+            <param name="InPrefix">Prefix for the x and y properties.</param>
             <returns>The GamePoint.</returns>
         </member>
         <member name="M:OSRSHelpers.Helpers.GetRegionFromData(System.Nullable{System.Text.Json.JsonElement})">
@@ -2223,6 +2397,11 @@
             Close players.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Shared.CloseWallsInfo">
+            <summary>
+            Close walls.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Shared.DebugInfo">
             <summary>
             Debug.
@@ -2251,6 +2430,11 @@
         <member name="P:OSRSHelpers.Shared.NPCInfo">
             <summary>
             Current NPC you're fighting/interracting with.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Shared.ProjectilesInfo">
+            <summary>
+            Current projectiles
             </summary>
         </member>
         <member name="P:OSRSHelpers.Shared.ShopInfo">
@@ -2430,6 +2614,13 @@
             <param name="InUsername">Username to log in with.</param>
             <param name="InPassword">Password to log in with.</param>
         </member>
+        <member name="M:OSRSHelpers.Shared.AutoLogoutIfPredicate(System.Func{System.Boolean},System.Boolean)">
+            <summary>
+            Logs out the specified predicate is true.
+            </summary>
+            <param name="InPredicate">Predicate to check.</param>
+            <param name="InbStopScriptOnLogout">Whether or not to stop the script on logout. Defaults to false.</param>
+        </member>
         <member name="M:OSRSHelpers.Shared.GetOpenTab(System.Boolean)">
             <summary>
             Gets the open tab.
@@ -2445,12 +2636,13 @@
             <param name="InbShouldForceUpdate">If true, force update the tabs before checking. Defaults to true.</param>
             <returns>Whether or not the tab is open.</returns>
         </member>
-        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType,System.Boolean)">
+        <member name="M:OSRSHelpers.Shared.OpenTab(OSRSHelpers.Types.ETabType,System.Boolean,System.Nullable{Portal.Input.MouseMoveOptions})">
             <summary>
             Tries to open the specified tab.
             </summary>
             <param name="InTab">Tab to open.</param>
             <param name="InbShouldForceUpdate">If true, force update the tabs before opening. Defaults to true.</param>
+            <param name="InMouseMoveOptions">Mouse move options to use. Defaults to null.</param>
             <returns>Whether or not the tab is open.</returns>
         </member>
         <member name="M:OSRSHelpers.Shared.CloseWindow(System.Nullable{Portal.GameRegion})">
@@ -2526,6 +2718,11 @@
             Signal for when the close remote players changes.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Signals.OnCloseWallsChanged">
+            <summary>
+            Signal for when the close walls changes.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Signals.OnGameChanged">
             <summary>
             Signal for when the player's status changes.
@@ -2534,6 +2731,11 @@
         <member name="P:OSRSHelpers.Signals.OnNPCChanged">
             <summary>
             Signal for when an NPC is interacted with changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnProjectilesChanged">
+            <summary>
+            Signal for when projectiles change.
             </summary>
         </member>
         <member name="P:OSRSHelpers.Signals.OnSkillsChanged">
