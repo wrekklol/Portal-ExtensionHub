@@ -499,13 +499,24 @@
         </member>
         <member name="T:OSRSHelpers.DataTypes.DebugObjectInspector">
             <summary>
-            Debug widget inspector.
+            Debug object inspector.
             </summary>
         </member>
         <member name="M:OSRSHelpers.DataTypes.DebugObjectInspector.#ctor(OSRSHelpers.DataTypes.CloseObjectsHandler)">
             <inheritdoc />
         </member>
         <member name="M:OSRSHelpers.DataTypes.DebugObjectInspector.OnRender">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugWallInspector">
+            <summary>
+            Debug wall inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugWallInspector.#ctor(OSRSHelpers.DataTypes.CloseWallsHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugWallInspector.OnRender">
             <inheritdoc />
         </member>
         <member name="T:OSRSHelpers.DataTypes.DebugWidgetInspector">
@@ -2916,6 +2927,11 @@
         <member name="T:OSRSHelpers.Types.ESkillType">
             <summary>
             Skill type enum.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Types.EComponentID">
+            <summary>
+            Component ID enum.
             </summary>
         </member>
         <member name="T:OSRSHelpers.Types.LocalPosition">
