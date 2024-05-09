@@ -478,12 +478,22 @@
         </member>
         <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowObjectInspector">
             <summary>
-            Shows the widget inspector.
+            Shows the object inspector.
             </summary>
         </member>
         <member name="M:OSRSHelpers.DataTypes.DebugHandler.HideObjectInspector">
             <summary>
             Hides the object inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowWallInspector">
+            <summary>
+            Shows the wall inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.HideWallInspector">
+            <summary>
+            Hides the wall inspector.
             </summary>
         </member>
         <member name="T:OSRSHelpers.DataTypes.DebugNPCInspector">
