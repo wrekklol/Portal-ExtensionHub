@@ -461,6 +461,16 @@
             Hides the object inspector.
             </summary>
         </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowProjectileInspector">
+            <summary>
+            Shows the projectile inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugHandler.HideProjectileInspector">
+            <summary>
+            Hides the projectile inspector.
+            </summary>
+        </member>
         <member name="M:OSRSHelpers.DataTypes.DebugHandler.ShowWallInspector">
             <summary>
             Shows the wall inspector.
@@ -491,6 +501,17 @@
             <inheritdoc />
         </member>
         <member name="M:OSRSHelpers.DataTypes.DebugObjectInspector.OnRender">
+            <inheritdoc />
+        </member>
+        <member name="T:OSRSHelpers.DataTypes.DebugProjectileInspector">
+            <summary>
+            Debug projectile inspector.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugProjectileInspector.#ctor(OSRSHelpers.DataTypes.ProjectileHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.DebugProjectileInspector.OnRender">
             <inheritdoc />
         </member>
         <member name="T:OSRSHelpers.DataTypes.DebugWallInspector">
@@ -2523,7 +2544,7 @@
             Current NPC you're fighting/interracting with.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.Shared.ProjectilesInfo">
+        <member name="P:OSRSHelpers.Shared.ProjectileInfo">
             <summary>
             Current projectiles
             </summary>
