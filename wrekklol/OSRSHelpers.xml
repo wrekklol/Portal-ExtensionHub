@@ -252,31 +252,6 @@
             Camera yaw.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.CameraHandler.FP_X">
-            <summary>
-            Camera floating point X position.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.CameraHandler.FP_Y">
-            <summary>
-            Camera floating point Y position.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.CameraHandler.FP_Z">
-            <summary>
-            Camera floating point Z position.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.CameraHandler.FP_Pitch">
-            <summary>
-            Camera floating point pitch.
-            </summary>
-        </member>
-        <member name="P:OSRSHelpers.DataTypes.CameraHandler.FP_Yaw">
-            <summary>
-            Camera floating point yaw.
-            </summary>
-        </member>
         <member name="M:OSRSHelpers.DataTypes.CameraHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
             <inheritdoc />
         </member>
@@ -665,6 +640,16 @@
         <member name="P:OSRSHelpers.DataTypes.GameHandler.Tick">
             <summary>
             Current tick of the game.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.GameHandler.BaseX">
+            <summary>
+            Base X of the client.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.GameHandler.BaseY">
+            <summary>
+            Base Y of the client.
             </summary>
         </member>
         <member name="P:OSRSHelpers.DataTypes.GameHandler.ClientScale">
@@ -1742,7 +1727,7 @@
             <summary>
             Constructor.
             </summary>
-            <param name="InJson">Json data to parse.</param>
+            <param name="InData">Json data to parse.</param>
         </member>
         <member name="T:OSRSHelpers.DataTypes.MenuOptionData">
             <summary>
@@ -1899,13 +1884,13 @@
             <summary>
             Constructor.
             </summary>
-            <param name="InJson">Json data to parse.</param>
+            <param name="InData">Json data to parse.</param>
         </member>
         <member name="M:OSRSHelpers.DataTypes.NPCData.ApplyNewData(System.Text.Json.JsonElement)">
             <summary>
             Applies new data to the NPC.
             </summary>
-            <param name="InJson">Json data to apply.</param>
+            <param name="InData">Json data to apply.</param>
         </member>
         <member name="T:OSRSHelpers.DataTypes.ObjectData">
             <summary>
@@ -2108,7 +2093,7 @@
             <summary>
             Constructor.
             </summary>
-            <param name="InJson">Json data to parse.</param>
+            <param name="InData">Json data to parse.</param>
         </member>
         <member name="T:OSRSHelpers.DataTypes.SkillData">
             <summary>
@@ -2306,6 +2291,21 @@
             Helper functions for OSRSHelpers.
             </summary>
         </member>
+        <member name="F:OSRSHelpers.Helpers.UNIT">
+            <summary>
+            How much of the circle each unit of SINE/COSINE is
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Helpers.SINE">
+            <summary>
+            Precomputed sine values.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Helpers.COSINE">
+            <summary>
+            Precomputed cosine values.
+            </summary>
+        </member>
         <member name="F:OSRSHelpers.Helpers.MAGIC_NUMBER_X">
             <summary>
             The border of the game window is 4 pixels wide, atleast on windows 11.
@@ -2346,14 +2346,84 @@
             <param name="InData">Data to get the GameRegion from.</param>
             <returns>The GameRegion.</returns>
         </member>
-        <member name="M:OSRSHelpers.Helpers.LocalToCanvas(System.Int32,System.Int32,System.Int32)">
+        <member name="M:OSRSHelpers.Helpers.IsInScene(System.Int32,System.Int32)">
             <summary>
-            Converts a local point to a GamePoint.
+            Check if the position is in the scene.
             </summary>
             <param name="InX">X position.</param>
             <param name="InY">Y position.</param>
-            <param name="InTileHeight">Tile height.</param>
-            <returns>The GamePoint.</returns>
+            <returns>True if in scene, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.LocalToCanvas(OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Convert a local position to a canvas position.
+            </summary>
+            <param name="InPos">Local position to convert.</param>
+            <returns>The canvas position.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Helpers.LocalToCanvas(OSRSHelpers.Types.LocalPosition,System.Int32)">
+            <summary>
+            Convert a local position to a canvas position.
+            </summary>
+            <param name="InPos">Local position to convert.</param>
+            <param name="InZOffset">Z offset.</param>
+            <returns>The canvas position.</returns>
+        </member>
+        <member name="T:OSRSHelpers.Constants">
+            <summary>
+            Constants for the game.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Constants.GAME_FIXED_WIDTH">
+            The original width of the game when running in fixed mode.
+        </member>
+        <member name="F:OSRSHelpers.Constants.GAME_FIXED_HEIGHT">
+            The original height of the game when running in fixed mode.
+        </member>
+        <member name="F:OSRSHelpers.Constants.GAME_FIXED_ASPECT_RATIO">
+            The aspect ratio of the game when running in fixed mode.
+        </member>
+        <member name="F:OSRSHelpers.Constants.CLIENT_DEFAULT_ZOOM">
+            The default camera zoom value.
+        </member>
+        <member name="F:OSRSHelpers.Constants.CHUNK_SIZE">
+            The width and length of a chunk (8x8 tiles).
+        </member>
+        <member name="F:OSRSHelpers.Constants.REGION_SIZE">
+            The width and length of a map region (64x64 tiles).
+        </member>
+        <member name="F:OSRSHelpers.Constants.SCENE_SIZE">
+            The width and length of the scene (13 chunks x 8 tiles).
+        </member>
+        <member name="F:OSRSHelpers.Constants.EXTENDED_SCENE_SIZE">
+            Size of the extended scene. To compute the offset to convert from scene coordinate to
+            extended scene coordinate, use (EXTENDED_SCENE_SIZE-SCENE_SIZE)/2.
+        </member>
+        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_POSITION">
+            Flag for roof removal to remove the roofs above the player's current position.
+        </member>
+        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_HOVERED">
+            Flag for roof removal to remove the roofs above the currently hovered tile.
+        </member>
+        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_DESTINATION">
+            Flag for roof removal to remove the roofs above the player's destination tile.
+        </member>
+        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_BETWEEN">
+            Flag for roof removal to remove the roofs that are above any tile between the camera and the player.
+        </member>
+        <member name="F:OSRSHelpers.Constants.OVERWORLD_MAX_Y">
+            The height of the overworld, in tiles. Coordinates above this are in caves and other such zones.
+        </member>
+        <member name="F:OSRSHelpers.Constants.ITEM_SPRITE_WIDTH">
+            Width of a standard item sprite
+        </member>
+        <member name="F:OSRSHelpers.Constants.ITEM_SPRITE_HEIGHT">
+            Height of a standard item sprite
+        </member>
+        <member name="F:OSRSHelpers.Constants.HIGH_ALCHEMY_MULTIPLIER">
+             High alchemy = shop price * HIGH_ALCHEMY_MULTIPLIER
+            
+             @see ItemComposition#getPrice
         </member>
         <member name="T:OSRSHelpers.OSRSExtension">
             <summary>
@@ -2701,10 +2771,31 @@
         </member>
         <member name="M:OSRSHelpers.Shared.GetVarbitValue(System.Int32)">
             <summary>
-            Gets the value of the specified varbit.
+            Gets the value of the specified Varbit.
             </summary>
             <param name="InVarbitID">Varbit ID.</param>
-            <returns>Value of the varbit.</returns>
+            <returns>Value of the Varbit.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.GetVarbitValue(OSRSHelpers.Types.EVarbit)">
+            <summary>
+            Gets the value of the specified Varbit.
+            </summary>
+            <param name="InVarbit">Varbit.</param>
+            <returns>Value of the Varbit.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.GetVarplayerValue(System.Int32)">
+            <summary>
+            Gets the value of the specified VarPlayer.
+            </summary>
+            <param name="InVarPlayerID">VarPlayer ID.</param>
+            <returns>Value of the VarPlayer.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.GetVarplayerValue(OSRSHelpers.Types.EVarPlayer)">
+            <summary>
+            Gets the value of the specified VarPlayer.
+            </summary>
+            <param name="InVarPlayer">VarPlayer.</param>
+            <returns>Value of the VarPlayer.</returns>
         </member>
         <member name="T:OSRSHelpers.Signals">
             <summary>
@@ -2951,6 +3042,666 @@
             Component ID enum.
             </summary>
         </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TRANSPARENT_CHATBOX">
+            <summary>
+            If chatbox is transparent or not
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.RUN_SLOWED_DEPLETION_ACTIVE">
+            <summary>
+            If the player has an active stamina potion effect or not
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.STAMINA_EFFECT">
+            <summary>
+            Stamina effect timer <br/>
+            Number of game ticks remaining on stamina effect in intervals of 10, for a value X there are 10 * X game ticks remaining. <br/>
+            The stamina effect expires once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.ANTIFIRE">
+            <summary>
+            Antifire timer <br/>
+            Number of game ticks remaining on antifire in intervals of 30, for a value X there are 30 * X game ticks remaining. <br/>
+            The antifire expires once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SUPER_ANTIFIRE">
+            <summary>
+            Super antifire timer <br/>
+            Number of game ticks remaining on super antifire in intervals of 20, for a value X there are 20 * X game ticks remaining. <br/>
+            The super antifire expires once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.MAGIC_IMBUE">
+            <summary>
+            Magic imbue timer <br/>
+            Number of game ticks remaining on magic imbue effect in intervals of 10, for a value X there are 10 * X game ticks remaining. <br/>
+            The magic imbue effect expires once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK">
+            <summary>
+            Divine effect timer <br/>
+            Number of game ticks remaining on a divine effect. <br/>
+            A potion that combines multiple effects will set the varbits for the individual effects as well as its own effect. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_STRENGTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_DEFENCE">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_RANGING">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_MAGIC">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_COMBAT">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_BASTION">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIVINE_BATTLEMAGE">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.DIVINE_SUPER_ATTACK"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.RING_OF_ENDURANCE_EFFECT">
+            <summary>
+            Ring of endurance effect timer, stamina duration extended from using the ring of endurance <br/>
+            Number of game ticks remaining on ring of endurance effect in intervals of 10, for a value X there are 10 * X game ticks remaining. <br/>
+            Unequipping the ring of endurance will cause this to change to 0. <br/>
+            When this reaches 0, {@link #STAMINA_EFFECT} will begin counting down. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.CHAT_SCROLLBAR_ON_LEFT">
+            <summary>
+            If scrollbar in resizable mode chat is on the left
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.RUNE_POUCH_RUNE1">
+            Runepouch
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.QUICK_PRAYER">
+            Prayers
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.PRAYER_RP_REJUVENATION">
+            Ruinous Powers
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DIARY_ARDOUGNE_EASY">
+            Diary Entries
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.KOUREND_FAVOR_ARCEUUS">
+            Kourend house favours
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.EQUIPPED_WEAPON_TYPE">
+            Equipped weapon type
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DEFENSIVE_CASTING_MODE">
+            Defensive casting mode
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SIDE_PANELS">
+            Options
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.HB_TRAIL_31303">
+            Herbiboar Trails
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.HB_STARTED">
+            <summary>
+            Started hunting Herbiboar. <br/>
+            NOTE: This value remains at 0 even after starting a Herbiboar trail up until searching the first object along the hunting path. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.IN_GAME_BA">
+            Barbarian Assault
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.IN_WILDERNESS">
+            <summary>
+            0 = Outside wilderness <br/>
+            1 = In wilderness <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FISHING_TRAWLER_ACTIVITY">
+            <summary>
+            Fishing Trawler <br/>
+            FISHING_TRAWLER_ACTIVITY Expected values: 0-255 <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BAR_DISPENSER">
+            <summary>
+            Blast Furnace Bar Dispenser <br/>
+            <p>
+            These are the expected values: <br/>
+            0 = No bars being processed <br/>
+            1 = Ores are being processed on the conveyor belt, bar dispenser cannot be checked <br/>
+            2 = Bars are cooling down <br/>
+            3 = Bars can be collected <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SACK_NUMBER">
+            Motherlode mine sack
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.EXPERIENCE_TRACKER_POSITION">
+            <summary>
+            Experience tracker <br/>
+            <p>
+            EXPERIENCE_TRACKER_POSITION expected values: <br/>
+            0 = Right <br/>
+            1 = Middle <br/>
+            2 = Left <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.EXPERIENCE_TRACKER_COUNTER">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.EXPERIENCE_TRACKER_POSITION"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.EXPERIENCE_TRACKER_PROGRESS_BAR">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.EXPERIENCE_TRACKER_POSITION"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.EXPERIENCE_DROP_COLOR">
+            Experience drop color
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TITHE_FARM_SACK_AMOUNT">
+            Tithe Farm
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BLAST_MINE_COAL">
+            Blast Mine
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.IN_RAID">
+            Raids
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.RAID_STATE">
+            <summary>
+            0 = raid not started <br/>
+            above 0 = raid started <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FIRE_PIT_GIANT_MOLE">
+            <summary>
+            Making Friends with My Arm fire pits <br/>
+            <p>
+            Expected values: <br/>
+            0 = Not built <br/>
+            1 = Built <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FIRE_PIT_LUMBRIDGE_SWAMP">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.FIRE_PIT_GIANT_MOLE"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FIRE_PIT_MOS_LE_HARMLESS">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.FIRE_PIT_GIANT_MOLE"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD">
+            <summary>
+            Theatre of Blood <br/>
+            1 = In Party <br/>
+            2 = Inside/Spectator <br/>
+            3 = Dead Spectating <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB1">
+            <summary>
+            Theatre of Blood orb healths <br/>
+            0 = hide <br/>
+            1-27 = % of health - 27 is 100% health and 1 is 0% health <br/>
+            30 = dead <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB2">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB1"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB3">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB1"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB4">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB1"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB5">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.THEATRE_OF_BLOOD_ORB1"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.NMZ_ABSORPTION">
+            Nightmare Zone
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BLAST_FURNACE_COPPER_ORE">
+            Blast Furnace
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.PYRAMID_PLUNDER_ROOM_LOCATION">
+            Pyramid plunder
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BARROWS_KILLED_AHRIM">
+            Barrows
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SPICY_STEW_RED_SPICES">
+            Spicy stew ingredients
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.MULTICOMBAT_AREA">
+            Multicombat area
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.KINGDOM_APPROVAL">
+            <summary>
+            Kingdom of Miscellania Management <br/>
+            Kingdom Approval is represented as a 7-bit unsigned integer, 127 corresponds to 100% approval <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.QUEST_THE_HAND_IN_THE_SAND">
+            The Hand in the Sand quest status
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DAILY_HERB_BOXES_COLLECTED">
+            Daily Tasks =Collection availability)
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DAILY_BONEMEAL_STATE">
+            This varbit tracks how much bonemeal has been redeemed from Robin
+            The player gets 13 for each diary completed above and including Medium, for a maxiumum of 39
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FAIR_RING_LAST_DESTINATION">
+            Fairy Ring
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FARMING_4771">
+            Transmog controllers for farming
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.GRAPES_4953">
+            Transmog controllers for grapes
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.AUTOWEED">
+            Automatically weed farming patches
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.ACCOUNT_TYPE">
+            <summary>
+            The player's account type. <br/>
+            <p>
+            0 = normal <br/>
+            1 = ironman <br/>
+            2 = ultimate ironman <br/>
+            3 = hardcore ironman <br/>
+            4 = group ironman <br/>
+            5 = hardcore group ironman <br/>
+            6 = unranked group ironman <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.OXYGEN_LEVEL">
+            The varbit that stores the oxygen percentage for player
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.NORTH_NET_STATUS">
+            <summary>
+            Drift net status <br/>
+            <p>
+            Expected values: <br/>
+            0 = Unset <br/>
+            1 = Set up <br/>
+            2 = Caught some fish <br/>
+            3 = Full <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SOUTH_NET_STATUS">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.NORTH_NET_STATUS"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.NORTH_NET_CATCH_COUNT">
+            Drift net catch count
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DRIFT_NET_COLLECT">
+            <summary>
+            Drift net collect interface <br/>
+            <p>
+            Expected values: <br/>
+            0 = Not open <br/>
+            1 = North interface open <br/>
+            2 = South interface open <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.CORP_DAMAGE">
+            Corp beast damage
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SUPERIOR_ENABLED">
+            Toggleable slayer unlocks
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.VENGEANCE_ACTIVE">
+            Spell activeness
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.HEAL_GROUP_COOLDOWN">
+            Spell cooldowns
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.IMBUED_HEART_COOLDOWN">
+            <summary>
+            Imbued Heart cooldown <br/>
+            Number of game tick remaining on cooldown in intervals of 10, for a value X there are 10 * X game ticks remaining. <br/>
+            The heart regains its power once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DRAGONFIRE_SHIELD_COOLDOWN">
+            <summary>
+            Dragonfire shield cooldown <br/>
+            Number of game ticks remaining on cooldown in intervals of 8, for a value X there are 8 * X game ticks remaining. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BANK_TAB_ONE_COUNT">
+            Amount of items in each bank tab
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.GE_OFFER_CREATION_TYPE">
+            <summary>
+            Type of GE offer currently being created <br/>
+            0 = buy <br/>
+            1 = sell <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.QUEST_TAB">
+            The active tab within the quest interface
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.EXPLORER_RING_ALCHTYPE">
+            Explorer ring
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.LEAGUE_RELIC_1">
+            League relics
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.MUTED_MUSIC_VOLUME">
+            Muted volume restore values
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.PARASITE">
+            <summary>
+            Parasite infection status during nightmare of ashihama bossfight <br/>
+            <p>
+            0 = not infected <br/>
+            1 = infected <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.WIKI_ENTITY_LOOKUP">
+            <summary>
+            Whether the vanilla wiki entity lookup is displayed under the minimap <br/>
+            <p>
+            0 = Enabled <br/>
+            1 = Disabled <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.PVP_SPEC_ORB">
+            <summary>
+            Whether the player is in a PvP area <br/>
+            <p>
+            0 = Player is not in PvP area <br/>
+            1 = Player is in PvP area <br/>
+            </p>
+            <p>
+            Note: The name of this varbit comes from historical behavior where the special attack orb would be disabled in PvP, but this was changed on 2023-03-09 due to Poll 78. Yet, the varbit still updates as before. <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COLLECTION_LOG_NOTIFICATION">
+            <summary>
+            Collection Log notification settings whenever a new item is added <br/>
+            <p>
+            0 = no notification <br/>
+            1 = chat notification only <br/>
+            2 = popup notification only <br/>
+            3 = chat and popup <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENTS_POPUP">
+            <summary>
+            Combat Achievements popup settings whenever a new task is completed <br/>
+            <p>
+            0 = popup notification enabled <br/>
+            1 = popup notification disabled <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_EASY">
+            <summary>
+            Combat Achievement tier completion variables <br/>
+            <p>
+            2 = completed <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_MEDIUM">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_EASY"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_HARD">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_EASY"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_ELITE">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_EASY"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_MASTER">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_EASY"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_GRANDMASTER">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.COMBAT_ACHIEVEMENT_TIER_EASY"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BOSS_HEALTH_OVERLAY">
+            <summary>
+            Show boss health overlay setting <br/>
+            <p>
+            0 = on <br/>
+            1 = off <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BOSS_HEALTH_CURRENT">
+            Boss health bar info
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SHOW_PVP_KDR_STATS">
+            <summary>
+            Whether the PVP kill-death stats widget should be drawn while in the wilderness or in PVP worlds. <br/>
+            <p>
+            0 = Disabled <br/>
+            1 = Enabled <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TELEBLOCK">
+            <summary>
+            State of Teleblock spell effects on the player <br/>
+            <p>
+            0 = Teleblock inactive, no immunity <br/>
+            1 &lt;= X &lt;= 100 = Teleblock inactive, remaining ticks of immunity from reapplication of spell effect <br/>
+            101 &lt;= Teleblock active, remaining ticks of blocking effect <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.GOD_WARS_ALTAR_COOLDOWN">
+            <summary>
+            Cooldown timer remaining before eligible to restore at a god wars dungeon altar. <br/>
+            Number of game ticks remaining is in intervals of 100, for a value X there are 100 * X game ticks remaining. <br/>
+            A player can pray at a god wars altar once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.FARMERS_AFFINITY">
+            <summary>
+            Farmer's Affinity effect timer <br/>
+            Number of game ticks remaining on Farmer's Affinity effect in intervals of 20, for a value X there are 20 * X game ticks remaining. <br/>
+            The Farmer's Affinity expires once this reaches 0. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.MENAPHITE_REMEDY">
+            <summary>
+            If the player has Menaphite remedy effect active. <br/>
+            This will go down by 1 every 25 ticks (15 seconds) and the player's combat stats will be restored by 6 + 16%. <br/>
+            Set to 20 upon consuming potion. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.BUFF_STAT_BOOST">
+            <summary>
+            How many salt stat boost refreshes the player has remaining. <br/>
+            This will go down by 1 every 25 ticks (15 seconds) and the player's stats will be restored. <br/>
+            Set to 32 upon crushing salts. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.LIQUID_ADERNALINE_ACTIVE">
+            <summary>
+            If the player has liquid adrenaline buff active <br/>
+            <p>
+            0 = inactive <br/>
+            1 = active <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH">
+            <summary>
+            Tombs of Amascut orb healths <br/>
+            <p>
+            0 = hide <br/>
+            1-27 = % of health - 27 is 100% health and 1 is 0% health <br/>
+            30 = dead <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_1_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_2_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_3_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_4_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_5_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_6_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_7_HEALTH">
+            <inheritdoc cref="F:OSRSHelpers.Types.EVarbit.TOA_MEMBER_0_HEALTH"/>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.NMZ_OVERLOAD_REFRESHES_REMAINING">
+            <summary>
+            How many NMZ overload refreshes the player has remaining. <br/>
+            <p>
+            This will go down by 1 every 25 ticks (15 seconds) and the player's stats will be restored. <br/>
+            Set to 20 upon drinking an overload. <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.COX_OVERLOAD_REFRESHES_REMAINING">
+            <summary>
+            How many Chambers of Xeric overload refreshes the player has remaining. <br/>
+            <p>
+            This will go down by 1 every 25 ticks (15 seconds) and the player's stats will be restored. <br/>
+            Set to 20 upon drinking an overload. <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SLAYER_TASK_BOSS">
+            The assigned boss for boss slayer.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.DISABLE_LEVEL_UP_INTERFACE">
+            Whether the level up interface is disabled
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.VIGGORA_LOCATION">
+            <summary>
+            During and after Curse of the Empty Lord, Viggora can be located in one of three locations, which is uniquely and permanently set for each player. <br/>
+            This varbit determines which location he will appear in, which is useful for a master clue step. <br/>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarbit.SPELLBOOK_SWAP">
+            <summary>
+            If the player has a spellbook swap active <br/>
+            <p>
+            0 = inactive <br/>
+            1 = active <br/>
+            </p>
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.DISEASE_VALUE">
+            Seems to start at 50(10 splash) and goes down by 1 every 30 seconds
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.IN_RAID_PARTY">
+             The ID of the party. This Var is only set in the raid bank area and the raid lobby
+            
+             This gets set to -1 when the raid starts. This is first set when the first player of the friends chat forms a party
+             on the recruiting board and it changes again when the first person actually enters the raid.
+            
+             -1 : Not in a party or in the middle of an ongoing raid
+             Anything else : This means that your friends chat has a raid party being formed and has not started yet
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.POISON">
+             The poisoned status of the player, with negative values indicating the duration of poison or venom protection and
+             positive values representing the amount of poison or venom damage the player will be taking.
+            
+             <ul>
+                 <li>
+                     (-inf, -38): Venom immune for a duration of {@code (abs(val) - 38) * 30} game ticks (18 seconds per
+                     poison tick), after which point the value will have increased to {@code -38} and be representing poison
+                     immunity rather than venom immunity
+                 </li>
+                 <li>
+                     [-38, 0): Poison immune for a duration of {@code abs(val) * 30} game ticks (18 seconds per poison tick)
+                 </li>
+                 <li>0: Not poisoned or immune to poison</li>
+                 <li>[1, 100]: Poisoned for an amount of {@code ceil(val / 5.0f)}</li>
+                 <li>
+                     [1000000, inf): Venomed for an amount of {@code min(20, (val - 999997) * 2)}, that is, an amount starting
+                     at 6 damage, increasing by 2 each time the value increases by one, and capped at 20
+                 </li>
+             </ul>
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.THRONE_OF_MISCELLANIA">
+            0 : not started
+            greater than 0 : in progress
+            greater than 99 : completed
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.CURRENT_GE_ITEM">
+            Item currently active in the creation of a buy or sell offer
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.ATTACK_GOAL_START">
+            Experience tracker goal start.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.ATTACK_GOAL_END">
+            Experience tracker goal end.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.BIRD_HOUSE_MEADOW_NORTH">
+            Bird house states
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.SLAYER_UNLOCK_1">
+            Slayer unlock bitfields
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.MOUSE_BUTTONS">
+            0 = 2 buttons, 1 = 1 button
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.HP_HUD_NPC_ID">
+            {@link NpcID} for the HP HUD
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.SETTINGS_OPAQUE_CHAT_PUBLIC">
+            Colors for chat messages
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.LAST_HOME_TELEPORT">
+            The difference, measured in minutes, between the time home teleport spell was last used and midnight, January 1, 1970 UTC.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.CHARGE_GOD_SPELL">
+            Charge spell duration
+            Value * 2 = Remaining game ticks on buff
+            E.g. value of 50 means buff will expire in 100 ticks.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.LAST_MINIGAME_TELEPORT">
+            The difference, measured in minutes, between the time minigame teleport was last used and midnight, January 1, 1970 UTC.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.SLAYER_TASK_SIZE">
+            Number of slayer creatures remaining on the assigned task
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.SLAYER_TASK_CREATURE">
+            Currently assigned slayer task if SLAYER_TASK_SIZE is greater than 0.
+            Mapping of value to name can be found in {@link EnumID#SLAYER_TASK_CREATURE}.
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.SLAYER_TASK_LOCATION">
+            Assigned slayer task location. The mapping of value to name can be found in {@link EnumID#SLAYER_TASK_LOCATION}
+        </member>
+        <member name="F:OSRSHelpers.Types.EVarPlayer.BUFF_BAR_WC_GROUP_BONUS">
+            Determines whether the woodcutting group bonus should be displayed on the buff bar or not.
+            96 = displayed (including the woodcutting guild).
+            0 = not displayed (after login until cutting a tree except normal trees or trees grown through farming).
+            -1 = not displayed (including normal trees or trees grown through farming).
+        </member>
         <member name="T:OSRSHelpers.Types.LocalPosition">
             <summary>
             Local position.
@@ -2985,6 +3736,18 @@
             </summary>
             <returns>The GamePoint.</returns>
         </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.ToWorldPosition">
+            <summary>
+            Convert to a WorldPosition.
+            </summary>
+            <returns>The WorldPosition.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.IsInScene">
+            <summary>
+            Check if the position is in the scene.
+            </summary>
+            <returns>True if in scene, false otherwise.</returns>
+        </member>
         <member name="T:OSRSHelpers.Types.WorldPosition">
             <summary>
             World position.
@@ -3000,18 +3763,42 @@
             Y position.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Types.WorldPosition.TileHeight">
+            <summary>
+            Tile height.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Types.WorldPosition.Plane">
             <summary>
             Plane.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.Types.WorldPosition.#ctor(System.Int32,System.Int32,System.Int32)">
+        <member name="M:OSRSHelpers.Types.WorldPosition.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Constructor.
             </summary>
             <param name="X">X position.</param>
             <param name="Y">Y position.</param>
+            <param name="TileHeight">Tile height.</param>
             <param name="Plane">Plane.</param>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.ToGamePoint">
+            <summary>
+            Convert to a GamePoint.
+            </summary>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.ToLocalPosition">
+            <summary>
+            Convert to a GamePoint.
+            </summary>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.IsInScene">
+            <summary>
+            Check if the position is in the scene.
+            </summary>
+            <returns>True if in scene, false otherwise.</returns>
         </member>
         <member name="T:OSRSHelpers.Types.EPrayer">
             <summary>
