@@ -2699,6 +2699,13 @@
             <param name="InID">Zoom level ID. Will use "Default" if null.</param>
             <param name="InZoomOffset">Offset to the zoom level. Defaults to 0.</param>
         </member>
+        <member name="M:OSRSHelpers.Shared.GetVarbitValue(System.Int32)">
+            <summary>
+            Gets the value of the specified varbit.
+            </summary>
+            <param name="InVarbitID">Varbit ID.</param>
+            <returns>Value of the varbit.</returns>
+        </member>
         <member name="T:OSRSHelpers.Signals">
             <summary>
             Signals for OSRSHelpers.
