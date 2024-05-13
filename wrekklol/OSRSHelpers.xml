@@ -508,7 +508,7 @@
             Debug projectile inspector.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.DebugProjectileInspector.#ctor(OSRSHelpers.DataTypes.ProjectileHandler)">
+        <member name="M:OSRSHelpers.DataTypes.DebugProjectileInspector.#ctor(OSRSHelpers.DataTypes.ProjectilesHandler)">
             <inheritdoc />
         </member>
         <member name="M:OSRSHelpers.DataTypes.DebugProjectileInspector.OnRender">
@@ -1255,22 +1255,22 @@
         <member name="M:OSRSHelpers.DataTypes.NPCHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
             <inheritdoc />
         </member>
-        <member name="T:OSRSHelpers.DataTypes.ProjectileHandler">
+        <member name="T:OSRSHelpers.DataTypes.ProjectilesHandler">
             <summary>
             Projectile class.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ProjectileHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+        <member name="M:OSRSHelpers.DataTypes.ProjectilesHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
             <summary>
             Projectile class.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.DataTypes.ProjectileHandler.Projectiles">
+        <member name="P:OSRSHelpers.DataTypes.ProjectilesHandler.Projectiles">
             <summary>
             List of projectiles.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ProjectileHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.ProjectilesHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
             <inheritdoc />
         </member>
         <member name="T:OSRSHelpers.DataTypes.ShopHandler">
@@ -2544,7 +2544,7 @@
             Current NPC you're fighting/interracting with.
             </summary>
         </member>
-        <member name="P:OSRSHelpers.Shared.ProjectileInfo">
+        <member name="P:OSRSHelpers.Shared.ProjectilesInfo">
             <summary>
             Current projectiles
             </summary>
@@ -3741,6 +3741,11 @@
         <member name="P:OSRSHelpers.Types.LocalPosition.TileHeight">
             <summary>
             Tile height.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Types.LocalPosition.Plane">
+            <summary>
+            Plane.
             </summary>
         </member>
         <member name="M:OSRSHelpers.Types.LocalPosition.#ctor(System.Int32,System.Int32,System.Int32)">
