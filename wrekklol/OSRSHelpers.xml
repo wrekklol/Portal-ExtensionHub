@@ -1590,6 +1590,11 @@
             World position of the player.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.DataTypes.StatusHandler.DestLocalPosition">
+            <summary>
+            Local destination position of the player.
+            </summary>
+        </member>
         <member name="M:OSRSHelpers.DataTypes.StatusHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
             <inheritdoc />
         </member>
