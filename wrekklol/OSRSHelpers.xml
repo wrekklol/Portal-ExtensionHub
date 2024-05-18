@@ -1595,6 +1595,11 @@
             Local destination position of the player.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.DataTypes.StatusHandler.HoverWorldPosition">
+            <summary>
+            Hovered (mouse over) world position of the player.
+            </summary>
+        </member>
         <member name="M:OSRSHelpers.DataTypes.StatusHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
             <inheritdoc />
         </member>
@@ -1670,11 +1675,12 @@
             Timestamp of the message.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ChatMessageData.#ctor(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.ChatMessageData.MakeFromJson(System.Text.Json.JsonElement)">
             <summary>
-            Constructor.
+            Creates a ChatMessageData from json data.
             </summary>
-            <param name="InJson">Json data to parse.</param>
+            <param name="InData">Json data to parse.</param>
+            <returns>The ChatMessageData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.ItemData">
             <summary>
@@ -1711,18 +1717,13 @@
             Slot in item container of the item. If it doesn't belong to a container, it should be -1.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ItemData.#ctor(System.Int32)">
+        <member name="M:OSRSHelpers.DataTypes.ItemData.MakeFromJson(System.Text.Json.JsonElement,System.Int32)">
             <summary>
-            Constructor.
+            Creates a ItemData from json data.
             </summary>
-            <param name="InSlot">Slot of the item. If it doesn't belong to a container, it should be -1.</param>
-        </member>
-        <member name="M:OSRSHelpers.DataTypes.ItemData.#ctor(System.Text.Json.JsonElement,System.Int32)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="InJson">Json data to parse.</param>
+            <param name="InData">Json data to parse.</param>
             <param name="InItemSlot">Slot of the item. If it doesn't belong to a container, it should be -1.</param>
+            <returns>The ItemData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.LootData">
             <summary>
@@ -1749,11 +1750,12 @@
             World position of the loot.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.LootData.#ctor(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.LootData.MakeFromJson(System.Text.Json.JsonElement)">
             <summary>
-            Constructor.
+            Creates a LootData from json data.
             </summary>
             <param name="InData">Json data to parse.</param>
+            <returns>The LootData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.MenuOptionData">
             <summary>
@@ -1906,17 +1908,18 @@
             World position of the NPC.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.NPCData.#ctor(System.Text.Json.JsonElement)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="InData">Json data to parse.</param>
-        </member>
         <member name="M:OSRSHelpers.DataTypes.NPCData.ApplyNewData(System.Text.Json.JsonElement)">
             <summary>
             Applies new data to the NPC.
             </summary>
             <param name="InData">Json data to apply.</param>
+        </member>
+        <member name="M:OSRSHelpers.DataTypes.NPCData.MakeFromJson(System.Text.Json.JsonElement)">
+            <summary>
+            Creates a NPCData from json data.
+            </summary>
+            <param name="InData">Json data to parse.</param>
+            <returns>The NPCData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.ObjectData">
             <summary>
@@ -1953,11 +1956,12 @@
             World position of the object.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ObjectData.#ctor(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.ObjectData.MakeFromJson(System.Text.Json.JsonElement)">
             <summary>
-            Constructor.
+            Creates a ObjectData from json data.
             </summary>
-            <param name="InData">Data to set from.</param>
+            <param name="InData">Json data to parse.</param>
+            <returns>The ObjectData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.ProjectileData">
             <summary>
@@ -2049,11 +2053,12 @@
             Current world position of the projectile.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.ProjectileData.#ctor(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.ProjectileData.MakeFromJson(System.Text.Json.JsonElement)">
             <summary>
-            Constructor.
+            Creates a ProjectileData from json data.
             </summary>
-            <param name="InData">Data to set from.</param>
+            <param name="InData">Json data to parse.</param>
+            <returns>The ProjectileData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.RemotePlayerData">
             <summary>
@@ -2115,11 +2120,12 @@
             World position of the remote player.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.RemotePlayerData.#ctor(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.RemotePlayerData.MakeFromJson(System.Text.Json.JsonElement)">
             <summary>
-            Constructor.
+            Creates a RemotePlayerData from json data.
             </summary>
             <param name="InData">Json data to parse.</param>
+            <returns>The RemotePlayerData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.SkillData">
             <summary>
@@ -2187,11 +2193,12 @@
             World position of the wall.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.DataTypes.WallData.#ctor(System.Text.Json.JsonElement)">
+        <member name="M:OSRSHelpers.DataTypes.WallData.MakeFromJson(System.Text.Json.JsonElement)">
             <summary>
-            Constructor.
+            Creates a WallData from json data.
             </summary>
-            <param name="InData">Data to set from.</param>
+            <param name="InData">Json data to parse.</param>
+            <returns>The WallData.</returns>
         </member>
         <member name="T:OSRSHelpers.DataTypes.UIHandler">
             <summary>
@@ -2311,145 +2318,6 @@
             </summary>
             <param name="InPoint">Game point to check.</param>
             <returns>True if the game point is within the viewport, false otherwise.</returns>
-        </member>
-        <member name="T:OSRSHelpers.Helpers">
-            <summary>
-            Helper functions for OSRSHelpers.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Helpers.UNIT">
-            <summary>
-            How much of the circle each unit of SINE/COSINE is
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Helpers.SINE">
-            <summary>
-            Precomputed sine values.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Helpers.COSINE">
-            <summary>
-            Precomputed cosine values.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Helpers.MAGIC_NUMBER_X">
-            <summary>
-            The border of the game window is 4 pixels wide, atleast on windows 11.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Helpers.MAGIC_NUMBER_Y">
-            <summary>
-            The header of the game window is 27 pixels tall, atleast on windows 11.
-            </summary>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.TryGetProperty(System.Text.Json.JsonElement,System.String)">
-            <summary>
-            Tries to get a property from data.
-            </summary>
-            <param name="InData">Data to get the property from.</param>
-            <param name="InName">Name of the property.</param>
-            <returns>The property, or null if it doesn't exist or is null.</returns>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.GetPositionFromData(System.Nullable{System.Text.Json.JsonElement})">
-            <summary>
-            Get a GamePoint from data.
-            </summary>
-            <param name="InData">Data to get the GamePoint from.</param>
-            <returns>The GamePoint.</returns>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.GetPositionFromData(System.Nullable{System.Text.Json.JsonElement},System.String)">
-            <summary>
-            Get a GamePoint from data.
-            </summary>
-            <param name="InData">Data to get the GamePoint from.</param>
-            <param name="InPrefix">Prefix for the x and y properties.</param>
-            <returns>The GamePoint.</returns>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.GetRegionFromData(System.Nullable{System.Text.Json.JsonElement})">
-            <summary>
-            Get a GameRegion from data.
-            </summary>
-            <param name="InData">Data to get the GameRegion from.</param>
-            <returns>The GameRegion.</returns>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.IsInScene(System.Int32,System.Int32)">
-            <summary>
-            Check if the position is in the scene.
-            </summary>
-            <param name="InX">X position.</param>
-            <param name="InY">Y position.</param>
-            <returns>True if in scene, false otherwise.</returns>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.LocalToCanvas(OSRSHelpers.Types.LocalPosition)">
-            <summary>
-            Convert a local position to a canvas position.
-            </summary>
-            <param name="InPos">Local position to convert.</param>
-            <returns>The canvas position.</returns>
-        </member>
-        <member name="M:OSRSHelpers.Helpers.LocalToCanvas(OSRSHelpers.Types.LocalPosition,System.Int32)">
-            <summary>
-            Convert a local position to a canvas position.
-            </summary>
-            <param name="InPos">Local position to convert.</param>
-            <param name="InZOffset">Z offset.</param>
-            <returns>The canvas position.</returns>
-        </member>
-        <member name="T:OSRSHelpers.Constants">
-            <summary>
-            Constants for the game.
-            </summary>
-        </member>
-        <member name="F:OSRSHelpers.Constants.GAME_FIXED_WIDTH">
-            The original width of the game when running in fixed mode.
-        </member>
-        <member name="F:OSRSHelpers.Constants.GAME_FIXED_HEIGHT">
-            The original height of the game when running in fixed mode.
-        </member>
-        <member name="F:OSRSHelpers.Constants.GAME_FIXED_ASPECT_RATIO">
-            The aspect ratio of the game when running in fixed mode.
-        </member>
-        <member name="F:OSRSHelpers.Constants.CLIENT_DEFAULT_ZOOM">
-            The default camera zoom value.
-        </member>
-        <member name="F:OSRSHelpers.Constants.CHUNK_SIZE">
-            The width and length of a chunk (8x8 tiles).
-        </member>
-        <member name="F:OSRSHelpers.Constants.REGION_SIZE">
-            The width and length of a map region (64x64 tiles).
-        </member>
-        <member name="F:OSRSHelpers.Constants.SCENE_SIZE">
-            The width and length of the scene (13 chunks x 8 tiles).
-        </member>
-        <member name="F:OSRSHelpers.Constants.EXTENDED_SCENE_SIZE">
-            Size of the extended scene. To compute the offset to convert from scene coordinate to
-            extended scene coordinate, use (EXTENDED_SCENE_SIZE-SCENE_SIZE)/2.
-        </member>
-        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_POSITION">
-            Flag for roof removal to remove the roofs above the player's current position.
-        </member>
-        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_HOVERED">
-            Flag for roof removal to remove the roofs above the currently hovered tile.
-        </member>
-        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_DESTINATION">
-            Flag for roof removal to remove the roofs above the player's destination tile.
-        </member>
-        <member name="F:OSRSHelpers.Constants.ROOF_FLAG_BETWEEN">
-            Flag for roof removal to remove the roofs that are above any tile between the camera and the player.
-        </member>
-        <member name="F:OSRSHelpers.Constants.OVERWORLD_MAX_Y">
-            The height of the overworld, in tiles. Coordinates above this are in caves and other such zones.
-        </member>
-        <member name="F:OSRSHelpers.Constants.ITEM_SPRITE_WIDTH">
-            Width of a standard item sprite
-        </member>
-        <member name="F:OSRSHelpers.Constants.ITEM_SPRITE_HEIGHT">
-            Height of a standard item sprite
-        </member>
-        <member name="F:OSRSHelpers.Constants.HIGH_ALCHEMY_MULTIPLIER">
-             High alchemy = shop price * HIGH_ALCHEMY_MULTIPLIER
-            
-             @see ItemComposition#getPrice
         </member>
         <member name="T:OSRSHelpers.OSRSExtension">
             <summary>
@@ -2633,6 +2501,11 @@
             Prayer flick worker instance.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Shared.PathfindWorkerInstance">
+            <summary>
+            Pathfinding worker instance.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Shared.SimpleCombatWorkerInstance">
             <summary>
             Simple combat worker instance.
@@ -2707,6 +2580,14 @@
         <member name="M:OSRSHelpers.Shared.WaitForIdle(System.Int32,System.Int32,System.Int32)">
             <summary>
             Waits for the player to be idle.
+            </summary>
+            <param name="InMaxTries">Maximum tries. Defaults to 100.</param>
+            <param name="InMinWait">Minimum random wait. Defaults to 100ms.</param>
+            <param name="InMaxWait">Maximum random wait. Defaults to 300ms.</param>
+        </member>
+        <member name="M:OSRSHelpers.Shared.WaitForValidPlayer(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Waits for the player to be valid, as in it has a world position.
             </summary>
             <param name="InMaxTries">Maximum tries. Defaults to 100.</param>
             <param name="InMinWait">Minimum random wait. Defaults to 100ms.</param>
@@ -2822,6 +2703,16 @@
             </summary>
             <param name="InVarPlayer">VarPlayer.</param>
             <returns>Value of the VarPlayer.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Shared.CalculatePath(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition,System.Int32,System.Int32)">
+            <summary>
+            Calculates the path from the start to the end position.
+            </summary>
+            <param name="InStart">Start position in world coordinates.</param>
+            <param name="InEnd">End position in world coordinates.</param>
+            <param name="InMaxDistance">Maximum distance to calculate the path.</param>
+            <param name="InStepSize">How many tiles between each step.</param>
+            <returns>The calculated path, or null if the path could not be calculated.</returns>
         </member>
         <member name="T:OSRSHelpers.Signals">
             <summary>
@@ -3779,6 +3670,57 @@
             </summary>
             <returns>True if in scene, false otherwise.</returns>
         </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.Offset(System.Int32,System.Int32)">
+            <summary>
+            Offset the position by the given values.
+            </summary>
+            <param name="InX">X offset.</param>
+            <param name="InY">Y offset.</param>
+            <returns>The position offset by the given values.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.DistanceTo(OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Get the distance to another position.
+            </summary>
+            <param name="InOther">The other position.</param>
+            <returns>The distance to the other position.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.Equals(OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Check if the position is equal to another.
+            </summary>
+            <param name="InOther">The other position.</param>
+            <returns>True if equal, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.op_Equality(OSRSHelpers.Types.LocalPosition,OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Check if the position is equal to another.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.op_Inequality(OSRSHelpers.Types.LocalPosition,OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Check if the position is equal to another.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.op_Addition(OSRSHelpers.Types.LocalPosition,OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Add two positions together.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.op_Subtraction(OSRSHelpers.Types.LocalPosition,OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Subtract two positions.
+            </summary>
+        </member>
         <member name="T:OSRSHelpers.Types.WorldPosition">
             <summary>
             World position.
@@ -3830,6 +3772,57 @@
             Check if the position is in the scene.
             </summary>
             <returns>True if in scene, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.Offset(System.Int32,System.Int32)">
+            <summary>
+            Offset the position by the given values.
+            </summary>
+            <param name="InX">X offset.</param>
+            <param name="InY">Y offset.</param>
+            <returns>The position offset by the given values.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.DistanceTo(OSRSHelpers.Types.WorldPosition)">
+            <summary>
+            Get the distance to another position.
+            </summary>
+            <param name="InOther">The other position.</param>
+            <returns>The distance to the other position.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.Equals(OSRSHelpers.Types.WorldPosition)">
+            <summary>
+            Check if the position is equal to another.
+            </summary>
+            <param name="InOther">The other position.</param>
+            <returns>True if equal, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.op_Equality(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition)">
+            <summary>
+            Check if the position is equal to another.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.op_Inequality(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition)">
+            <summary>
+            Check if the position is equal to another.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.op_Addition(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition)">
+            <summary>
+            Add two positions together.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.op_Subtraction(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition)">
+            <summary>
+            Subtract two positions.
+            </summary>
         </member>
         <member name="T:OSRSHelpers.Types.EPrayer">
             <summary>
@@ -3942,6 +3935,168 @@
             The music tab.
             </summary>
         </member>
+        <member name="T:OSRSHelpers.Utility.Constants">
+            <summary>
+            Constants for the game.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.GAME_FIXED_WIDTH">
+            The original width of the game when running in fixed mode.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.GAME_FIXED_HEIGHT">
+            The original height of the game when running in fixed mode.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.GAME_FIXED_ASPECT_RATIO">
+            The aspect ratio of the game when running in fixed mode.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.CLIENT_DEFAULT_ZOOM">
+            The default camera zoom value.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.CHUNK_SIZE">
+            The width and length of a chunk (8x8 tiles).
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.REGION_SIZE">
+            The width and length of a map region (64x64 tiles).
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.SCENE_SIZE">
+            The width and length of the scene (13 chunks x 8 tiles).
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.EXTENDED_SCENE_SIZE">
+            Size of the extended scene. To compute the offset to convert from scene coordinate to
+            extended scene coordinate, use (EXTENDED_SCENE_SIZE-SCENE_SIZE)/2.
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:OSRSHelpers.Utility.Constants.MAX_Z" -->
+        <member name="F:OSRSHelpers.Utility.Constants.ROOF_FLAG_POSITION">
+            Flag for roof removal to remove the roofs above the player's current position.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.ROOF_FLAG_HOVERED">
+            Flag for roof removal to remove the roofs above the currently hovered tile.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.ROOF_FLAG_DESTINATION">
+            Flag for roof removal to remove the roofs above the player's destination tile.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.ROOF_FLAG_BETWEEN">
+            Flag for roof removal to remove the roofs that are above any tile between the camera and the player.
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.OVERWORLD_MAX_Y">
+            The height of the overworld, in tiles. Coordinates above this are in caves and other such zones.
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:OSRSHelpers.Utility.Constants.CLIENT_TICK_LENGTH" -->
+        <!-- Badly formed XML comment ignored for member "F:OSRSHelpers.Utility.Constants.GAME_TICK_LENGTH" -->
+        <member name="F:OSRSHelpers.Utility.Constants.ITEM_SPRITE_WIDTH">
+            Width of a standard item sprite
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.ITEM_SPRITE_HEIGHT">
+            Height of a standard item sprite
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.HIGH_ALCHEMY_MULTIPLIER">
+             High alchemy = shop price * HIGH_ALCHEMY_MULTIPLIER
+            
+             @see ItemComposition#getPrice
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.UNIT">
+            <summary>
+            How much of the circle each unit of SINE/COSINE is
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.LOCAL_COORD_BITS">
+            <summary>
+            The number of bits used for local coordinates.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.LOCAL_TILE_SIZE">
+            <summary>
+            The size of a tile in local coordinates. 128 - size of a tile in local coordinates
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.LOCAL_HALF_TILE_SIZE">
+            <summary>
+            Half the size of a tile in local coordinates. 64 - half the size of a tile in local coordinates
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.ESCENE_OFFSET">
+            <summary>
+            The offset to convert from scene coordinate to extended scene coordinate.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.SINE">
+            <summary>
+            Precomputed sine values.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.COSINE">
+            <summary>
+            Precomputed cosine values.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.MAGIC_NUMBER_X">
+            <summary>
+            The border of the game window is 4 pixels wide, atleast on windows 11.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.Utility.Constants.MAGIC_NUMBER_Y">
+            <summary>
+            The header of the game window is 27 pixels tall, atleast on windows 11.
+            </summary>
+        </member>
+        <member name="T:OSRSHelpers.Utility.Helpers">
+            <summary>
+            Helper functions for OSRSHelpers.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.TryGetProperty(System.Text.Json.JsonElement,System.String)">
+            <summary>
+            Tries to get a property from data.
+            </summary>
+            <param name="InData">Data to get the property from.</param>
+            <param name="InName">Name of the property.</param>
+            <returns>The property, or null if it doesn't exist or is null.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.GetPositionFromData(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Get a GamePoint from data.
+            </summary>
+            <param name="InData">Data to get the GamePoint from.</param>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.GetPositionFromData(System.Nullable{System.Text.Json.JsonElement},System.String)">
+            <summary>
+            Get a GamePoint from data.
+            </summary>
+            <param name="InData">Data to get the GamePoint from.</param>
+            <param name="InPrefix">Prefix for the x and y properties.</param>
+            <returns>The GamePoint.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.GetRegionFromData(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Get a GameRegion from data.
+            </summary>
+            <param name="InData">Data to get the GameRegion from.</param>
+            <returns>The GameRegion.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.IsInScene(System.Int32,System.Int32)">
+            <summary>
+            Check if the position is in the scene.
+            </summary>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
+            <returns>True if in scene, false otherwise.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.LocalToCanvas(OSRSHelpers.Types.LocalPosition)">
+            <summary>
+            Convert a local position to a canvas position.
+            </summary>
+            <param name="InPos">Local position to convert.</param>
+            <returns>The canvas position.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Utility.Helpers.LocalToCanvas(OSRSHelpers.Types.LocalPosition,System.Int32)">
+            <summary>
+            Convert a local position to a canvas position.
+            </summary>
+            <param name="InPos">Local position to convert.</param>
+            <param name="InZOffset">Z offset.</param>
+            <returns>The canvas position.</returns>
+        </member>
         <member name="T:OSRSHelpers.LoginWorker">
              <summary>
              Login worker.
@@ -3969,6 +4124,136 @@
             Tries to logout.
             </summary>
             <returns>True if the logout was successful.</returns>
+        </member>
+        <member name="T:OSRSHelpers.PathfindWorker">
+            <summary>
+            Pathfind worker.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.PathfindWorker.bIsPathfinding">
+            <summary>
+            Is the worker active?
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.PathfindWorker.bUseRightClick">
+            <summary>
+            Should pathfinding use right click to walk?
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.OnTick">
+            <inheritdoc />
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.StartPathfinding(OSRSHelpers.Types.WorldPosition,System.Int32,System.Int32)">
+            <summary>
+            Calculates and starts following a path.
+            <br/><br/>
+            Use this function to start pathfinding, and do NOT use <see cref="!:PathfindWorker.Start"/>.
+            </summary>
+            <param name="InDestination">Destination to pathfind to.</param>
+            <param name="InMaxDistance">Maximum distance to calculate the path. Defaults to 15 tiles.</param>
+            <param name="InStepSize">How many tiles between each step. Defaults to 5 tiles.</param>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.StartPathfinding(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition,System.Int32,System.Int32)">
+            <summary>
+            Calculates and starts following a path.
+            <br/><br/>
+            Use this function to start pathfinding, and do NOT use <see cref="!:PathfindWorker.Start"/>.
+            </summary>
+            <param name="InStart">Start position to pathfind from.</param>
+            <param name="InDestination">Destination to pathfind to.</param>
+            <param name="InMaxDistance">Maximum distance to calculate the path. Defaults to 15 tiles.</param>
+            <param name="InStepSize">How many tiles between each step. Defaults to 5 tiles.</param>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.StartPathfinding(System.Collections.Generic.IEnumerable{OSRSHelpers.Types.WorldPosition},System.Int32,System.Int32)">
+            <summary>
+            Calculates and starts following paths.
+            <br/><br/>
+            Use this function to start pathfinding, and do NOT use <see cref="!:PathfindWorker.Start"/>.
+            </summary>
+            <param name="InPathsToGenerate">Paths to generate and follow.</param>
+            <param name="InMaxDistance">Maximum distance to calculate the path. Defaults to 15 tiles.</param>
+            <param name="InStepSize">How many tiles between each step. Defaults to 5 tiles.</param>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.StartPathfinding(OSRSHelpers.Types.WorldPosition,System.Collections.Generic.IEnumerable{OSRSHelpers.Types.WorldPosition},System.Int32,System.Int32)">
+            <summary>
+            Calculates and starts following paths.
+            <br/><br/>
+            Use this function to start pathfinding, and do NOT use <see cref="!:PathfindWorker.Start"/>.
+            </summary>
+            <param name="InStart">Start position to pathfind from.</param>
+            <param name="InPathsToGenerate">Paths to generate and follow.</param>
+            <param name="InMaxDistance">Maximum distance to calculate the path. Defaults to 15 tiles.</param>
+            <param name="InStepSize">How many tiles between each step. Defaults to 5 tiles.</param>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.StopPathfinding">
+            <summary>
+            Stops pathfinding.
+            <br/><br/>
+            Use this function to stop pathfinding, and do NOT use <see cref="!:PathfindWorker.Stop"/>.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.PausePathfindingOnNextTile(System.Action)">
+            <summary>
+            Pauses pathfind worker on the next tile.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.UnpausePathfinding">
+            <summary>
+            Unpauses pathfinding.
+            <br/><br/>
+            Use this function to unpause pathfinding, and do NOT use <see cref="!:PathfindWorker.Unpause"/>.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderToPause">
+            <summary>
+            Waits for the pathfind worker to pause.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderToFinish">
+            <summary>
+            Waits for the pathfind worker to finish.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderSuccess">
+            <summary>
+            Waits for the pathfind worker to have a succeeded result or finish (stop).
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderResult(OSRSHelpers.PathfindWorker.PathfinderResult)">
+            <summary>
+            Waits for the pathfind worker to have a specific result or finish (stop).
+            </summary>
+            <param name="InResult">Result to wait for.</param>
+        </member>
+        <member name="T:OSRSHelpers.PathfindWorker.PathfinderResult">
+            <summary>
+            Result of a pathfinder.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.PathfindWorker.PathfinderResult.None">
+            <summary>
+            Not working.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.PathfindWorker.PathfinderResult.Working">
+            <summary>
+            Working.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.PathfindWorker.PathfinderResult.Succeeded">
+            <summary>
+            Succeeded.
+            </summary>
+        </member>
+        <member name="F:OSRSHelpers.PathfindWorker.PathfinderResult.Failed">
+            <summary>
+            Failed.
+            </summary>
         </member>
         <member name="T:OSRSHelpers.PrayerFlickWorker">
             <summary>
@@ -4021,11 +4306,11 @@
             </summary>
         </member>
         <member name="M:OSRSHelpers.PrayerFlickWorker.UnpausePrayerFlicking">
-             <summary>
-             Unpauses prayer flicking.
-            
-             Calling this function is the same as calling <see cref="!:PrayerFlickWorker.Unpause"/>.
-             </summary>
+            <summary>
+            Unpauses prayer flicking.
+            <br/><br/>
+            Use this function to unpause prayer flicking, and do NOT use <see cref="!:PrayerFlickWorker.Unpause"/>.
+            </summary>
         </member>
         <member name="M:OSRSHelpers.PrayerFlickWorker.WaitForPrayerFlickingToPause">
             <summary>
@@ -4151,11 +4436,11 @@
             <param name="InOnPausedOnAfterLooting"></param>
         </member>
         <member name="M:OSRSHelpers.SimpleCombatWorker.UnpauseAttacking">
-             <summary>
-             Unpauses attacking.
-            
-             Calling this function is the same as calling <see cref="!:SimpleCombatWorker.Unpause"/>.
-             </summary>
+            <summary>
+            Unpauses attacking.
+            <br/><br/>
+            Use this function to unpause combat, and do NOT use <see cref="!:SimpleCombatWorker.Unpause"/>.
+            </summary>
         </member>
         <member name="M:OSRSHelpers.SimpleCombatWorker.WaitForAttackingToPause">
             <summary>
