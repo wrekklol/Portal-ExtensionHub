@@ -2704,6 +2704,15 @@
             <param name="InVarPlayer">VarPlayer.</param>
             <returns>Value of the VarPlayer.</returns>
         </member>
+        <member name="M:OSRSHelpers.Shared.FetchTileHeight(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Fetch the tile height at the position.
+            </summary>
+            <param name="InbUseLocalSpace">Whether to use local space or world space.</param>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
+            <returns>The tile height.</returns>
+        </member>
         <member name="M:OSRSHelpers.Shared.CalculatePath(OSRSHelpers.Types.WorldPosition,OSRSHelpers.Types.WorldPosition,System.Int32,System.Int32)">
             <summary>
             Calculates the path from the start to the end position.
@@ -3648,9 +3657,16 @@
             <summary>
             Constructor.
             </summary>
-            <param name="X">X position.</param>
-            <param name="Y">Y position.</param>
-            <param name="TileHeight">Tile height.</param>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
+            <param name="InTileHeight">Tile height.</param>
+        </member>
+        <member name="M:OSRSHelpers.Types.LocalPosition.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
         </member>
         <member name="M:OSRSHelpers.Types.LocalPosition.ToGamePoint">
             <summary>
@@ -3750,10 +3766,25 @@
             <summary>
             Constructor.
             </summary>
-            <param name="X">X position.</param>
-            <param name="Y">Y position.</param>
-            <param name="TileHeight">Tile height.</param>
-            <param name="Plane">Plane.</param>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
+            <param name="InTileHeight">Tile height.</param>
+            <param name="InPlane">Plane.</param>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
+            <param name="InPlane">Plane.</param>
+        </member>
+        <member name="M:OSRSHelpers.Types.WorldPosition.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="InX">X position.</param>
+            <param name="InY">Y position.</param>
         </member>
         <member name="M:OSRSHelpers.Types.WorldPosition.ToGamePoint">
             <summary>
@@ -4140,6 +4171,11 @@
             Should pathfinding use right click to walk?
             </summary>
         </member>
+        <member name="P:OSRSHelpers.PathfindWorker.Result">
+            <summary>
+            Result of the pathfinder.
+            </summary>
+        </member>
         <member name="M:OSRSHelpers.PathfindWorker.#ctor">
             <summary>
             Constructor.
@@ -4214,21 +4250,29 @@
             Waits for the pathfind worker to pause.
             </summary>
         </member>
-        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderToFinish">
+        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderToFinish(System.Int32,System.Int32)">
             <summary>
             Waits for the pathfind worker to finish.
+            <br/><br/>
+            Defaults to 6000 tries and 10ms delay, which is 60 seconds.
             </summary>
+            <param name="InMaxTries">Maximum tries it will wait. Defaults to 6000.</param>
+            <param name="InDelay">Delay between tries. Defaults to 10.</param>
         </member>
         <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderSuccess">
             <summary>
             Waits for the pathfind worker to have a succeeded result or finish (stop).
             </summary>
         </member>
-        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderResult(OSRSHelpers.PathfindWorker.PathfinderResult)">
+        <member name="M:OSRSHelpers.PathfindWorker.WaitForPathfinderResult(OSRSHelpers.PathfindWorker.PathfinderResult,System.Int32,System.Int32)">
             <summary>
             Waits for the pathfind worker to have a specific result or finish (stop).
+            <br/><br/>
+            Defaults to 6000 tries and 10ms delay, which is 60 seconds.
             </summary>
             <param name="InResult">Result to wait for.</param>
+            <param name="InMaxTries">Maximum tries it will wait. Defaults to 6000.</param>
+            <param name="InDelay">Delay between tries. Defaults to 10.</param>
         </member>
         <member name="T:OSRSHelpers.PathfindWorker.PathfinderResult">
             <summary>
