@@ -3837,8 +3837,8 @@
             <summary>
             Offset the position by the given values in tiles, the size of a tile is 128.
             </summary>
-            <param name="InX">X offset in tiles.</param>
-            <param name="InY">Y offset in tiles.</param>
+            <param name="InX">X offset in tiles, for example you specify 1, the position will be offset by 128 pixels.</param>
+            <param name="InY">Y offset in tiles, for example you specify 1, the position will be offset by 128 pixels.</param>
             <returns>The position offset by the given values.</returns>
         </member>
         <member name="M:OSRSHelpers.Types.LocalPosition.DistanceTo(OSRSHelpers.Types.LocalPosition)">
