@@ -247,6 +247,21 @@
             Pose of the NPC.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCData.Orientation">
+            <summary>
+            Orientation of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCData.CurrentOrientation">
+            <summary>
+            Current orientation of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.NPCData.ModelHeight">
+            <summary>
+            Model height of the NPC.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.DataTypes.NPCData.Position">
             <summary>
             Position of the NPC.
@@ -520,6 +535,31 @@
         <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.bIsDead">
             <summary>
             If true, the remote player is dead.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.Animation">
+            <summary>
+            Animation of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.AnimationPose">
+            <summary>
+            Pose of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.Orientation">
+            <summary>
+            Orientation of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.CurrentOrientation">
+            <summary>
+            Current orientation of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.ModelHeight">
+            <summary>
+            Model height of the player.
             </summary>
         </member>
         <member name="P:OSRSHelpers.DataTypes.RemotePlayerData.HeadIcon">
@@ -1920,6 +1960,21 @@
             Pose of the NPC.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Handlers.NPCHandler.Orientation">
+            <summary>
+            Orientation of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.NPCHandler.CurrentOrientation">
+            <summary>
+            Current orientation of the NPC.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.NPCHandler.ModelHeight">
+            <summary>
+            Model height of the NPC.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Handlers.NPCHandler.Position">
             <summary>
             Position of the NPC.
@@ -2246,6 +2301,21 @@
         <member name="P:OSRSHelpers.Handlers.StatusHandler.AnimationPose">
             <summary>
             Player's pose.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.StatusHandler.Orientation">
+            <summary>
+            Orientation of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.StatusHandler.CurrentOrientation">
+            <summary>
+            Current orientation of the player.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.StatusHandler.ModelHeight">
+            <summary>
+            Model height of the player.
             </summary>
         </member>
         <member name="P:OSRSHelpers.Handlers.StatusHandler.HeadIcon">
