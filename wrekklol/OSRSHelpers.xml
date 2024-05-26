@@ -1012,6 +1012,12 @@
             <param name="InbShouldForceUpdate">If true, force update the npcs before clicking.</param>
             <returns>The closest npc to the mouse.</returns>
         </member>
+        <member name="M:OSRSHelpers.Handlers.CloseNPCsHandler.SetMaxDistance(System.Double)">
+            <summary>
+            Set the max distance for close npcs.
+            </summary>
+            <param name="InMaxDistance">Max distance to set.</param>
+        </member>
         <member name="T:OSRSHelpers.Handlers.CloseObjectsHandler">
             <summary>
             CloseObjects class.
@@ -1045,6 +1051,12 @@
             <param name="InNames">Names of the objects to get.</param>
             <param name="InbShouldForceUpdate">If true, force update the objects before clicking.</param>
             <returns>The closest object to the mouse.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Handlers.CloseObjectsHandler.SetMaxDistance(System.Double)">
+            <summary>
+            Set the max distance for close objects.
+            </summary>
+            <param name="InMaxDistance">Max distance to set.</param>
         </member>
         <member name="T:OSRSHelpers.Handlers.ClosePlayersHandler">
             <summary>
@@ -1080,6 +1092,12 @@
             <param name="InbShouldForceUpdate">If true, force update the players before clicking.</param>
             <returns>The closest player to the mouse.</returns>
         </member>
+        <member name="M:OSRSHelpers.Handlers.ClosePlayersHandler.SetMaxDistance(System.Double)">
+            <summary>
+            Set the max distance for close players.
+            </summary>
+            <param name="InMaxDistance">Max distance to set.</param>
+        </member>
         <member name="T:OSRSHelpers.Handlers.CloseWallsHandler">
             <summary>
             CloseWalls class.
@@ -1113,6 +1131,106 @@
             <param name="InNames">Names of the walls to get.</param>
             <param name="InbShouldForceUpdate">If true, force update the walls before clicking.</param>
             <returns>The closest wall to the mouse.</returns>
+        </member>
+        <member name="M:OSRSHelpers.Handlers.CloseWallsHandler.SetMaxDistance(System.Double)">
+            <summary>
+            Set the max distance for close walls.
+            </summary>
+            <param name="InMaxDistance">Max distance to set.</param>
+        </member>
+        <member name="T:OSRSHelpers.Handlers.ClueScrollHandler">
+            <summary>
+            Clue scroll handler.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Handlers.ClueScrollHandler.#ctor(System.String,Portal.ThreadSafeWrapper)">
+            <summary>
+            Clue scroll handler.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Type">
+            <summary>
+            Type of the clue scroll.
+            <para>
+            -1 = Invalid
+            0 = AnagramClue
+            1 = BeginnerMapClue
+            2 = CipherClue
+            3 = CoordinateClue
+            4 = CrypticClue
+            5 = EmoteClue
+            6 = FairyRingClue
+            7 = FaloTheBardClue
+            8 = HotColdClue
+            9 = MapClue
+            10 = MusicClue
+            11 = SkillChallengeClue
+            12 = ThreeStepCrypticClue
+            </para>
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Location">
+            <summary>
+            Location of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.MirrorLocation">
+            <summary>
+            Mirror location of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Answer">
+            <summary>
+            Answer of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Area">
+            <summary>
+            Area of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Text">
+            <summary>
+            Text of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Question">
+            <summary>
+            Question of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.Solution">
+            <summary>
+            Solution of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.ItemId">
+            <summary>
+            Item id of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.NpcId">
+            <summary>
+            Npc id of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.ObjectId">
+            <summary>
+            Object id of the clue scroll.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.RequiresSpade">
+            <summary>
+            If true, the clue scroll requires a spade.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Handlers.ClueScrollHandler.RequiresLight">
+            <summary>
+            If true, the clue scroll requires a light source.
+            </summary>
+        </member>
+        <member name="M:OSRSHelpers.Handlers.ClueScrollHandler.InternalSetFromJSON(System.Text.Json.JsonElement)">
+            <inheritdoc />
         </member>
         <member name="T:OSRSHelpers.Handlers.DebugHandler">
             <summary>
@@ -1900,6 +2018,12 @@
             <param name="InbShouldForceUpdate">If true, force update the loot before clicking.</param>
             <returns>The closest loot to the mouse.</returns>
         </member>
+        <member name="M:OSRSHelpers.Handlers.LootHandler.SetMaxDistance(System.Double)">
+            <summary>
+            Set the max distance for loot.
+            </summary>
+            <param name="InMaxDistance">Max distance to set.</param>
+        </member>
         <member name="T:OSRSHelpers.Handlers.NPCHandler">
             <summary>
             NPC class.
@@ -2585,6 +2709,11 @@
             Close players.
             </summary>
         </member>
+        <member name="P:OSRSHelpers.Shared.ClueScrollInfo">
+            <summary>
+            Clue scroll.
+            </summary>
+        </member>
         <member name="P:OSRSHelpers.Shared.CloseWallsInfo">
             <summary>
             Close walls.
@@ -2969,6 +3098,11 @@
         <member name="P:OSRSHelpers.Signals.OnCloseWallsChanged">
             <summary>
             Signal for when the close walls changes.
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.Signals.OnClueScrollChanged">
+            <summary>
+            Signal for when the clue scroll changes.
             </summary>
         </member>
         <member name="P:OSRSHelpers.Signals.OnGameChanged">
@@ -4669,6 +4803,11 @@
         <member name="P:OSRSHelpers.SimpleCombatWorker.bUsePrayerFlicking">
             <summary>
             Should prayer flicking be used?
+            </summary>
+        </member>
+        <member name="P:OSRSHelpers.SimpleCombatWorker.bWaitForTargetDespawn">
+            <summary>
+            Should the worker wait for the target to despawn upon kill?
             </summary>
         </member>
         <member name="P:OSRSHelpers.SimpleCombatWorker.bIsAttacking">
